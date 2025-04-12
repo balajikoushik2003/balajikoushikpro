@@ -3,43 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balaji Koushik S - Resume</title>
+    <title>Balaji Koushik S - Profile</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: fadeIn 1s ease forwards;
         }
         .container {
-            max-width: 800px;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
+            max-width: 900px;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+            animation: slideUp 1s ease forwards;
         }
         h1, h2 {
-            color: #333;
+            color: #e0e0e0;
+            margin-bottom: 10px;
         }
         .contact-info {
             text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease forwards;
         }
         .contact-info a {
-            color: #0073b1;
+            color: #00adb5;
             text-decoration: none;
             margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #03f4fc;
         }
         .section {
-            margin-top: 20px;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSection 1s forwards;
+        }
+        .section:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+        .section:nth-child(even) {
+            animation-delay: 0.6s;
         }
         ul {
             padding-left: 20px;
         }
-        .experience, .education, .projects, .achievements, .certifications, .skills {
-            margin-bottom: 20px;
+        li {
+            margin-bottom: 8px;
         }
         .job-title, .degree {
             font-weight: bold;
+            color: #00adb5;
+        }
+        a {
+            color: #03dac6;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -86,7 +136,6 @@
                 <li>Developed an ML-based hydroponic system using IoT sensors for crop growth optimization.</li>
                 <li>Achieved a plant growth rate of 0.9 cm/day.</li>
             </ul>
-            
             <p class="job-title">Waste Management System using IoT</p>
             <ul>
                 <li>Designed an automated waste segregation system using sensors.</li>
