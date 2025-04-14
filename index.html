@@ -16,22 +16,45 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-    nav
-      background: #686868;
-      padding: 15px 20px;
-      text-align: center;
-      position: relative;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #00adb5;
-    }
+nav {
+  background: #1c1c1c;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+nav .nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+  color: #00adb5;
+}
+
+nav .contact-btn a {
+  padding: 8px 20px;
+  background-color: #00adb5;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+nav .contact-btn a:hover {
+  background-color: #007c87;
+}
 
   .profile-img {
   position: absolute;
