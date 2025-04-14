@@ -170,6 +170,123 @@ nav .contact-btn a:hover {
     .contact-links a:hover {
       color: #007c87;
     }
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  nav .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  nav .contact-btn a {
+    margin-top: 10px;
+  }
+
+  .profile-img {
+    position: static;
+    width: 100px;
+    height: 120px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .contact-links a {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-img {
+    position: static;
+    width: 120px;
+    height: 140px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-right: 0;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  section {
+    margin: 25px 20px;
+    padding: 20px;
+  }
+
+  nav .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* Large Devices (Laptops & Desktops) */
+@media (min-width: 993px) {
+  nav {
+    flex-direction: row;
+  }
+
+  nav .nav-links {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .profile-img {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 140px;
+    height: 170px;
+    margin-top: 100px;
+    margin-right: 280px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-right: 220px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+  }
+}
   </style>
 </head>
 <body>
