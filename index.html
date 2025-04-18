@@ -23,13 +23,28 @@ a:-webkit-any-link {
 }
 
 nav {
-  background: #1c1c1c;
-  padding: 10px 20px;  /* Reduced padding for better alignment */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  justify-content: center; /* center nav links horizontally */
+  gap: 30px; /* reduce the gap between links */
+  padding: 10px 0;
 }
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00adb5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 
 nav .nav-links {
   display: flex;
