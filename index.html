@@ -23,7 +23,7 @@
       to { opacity: 1; }
     }
 
-    /* ========== Navbar ========== */
+ 
     nav {
       background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
       color: white;
@@ -62,7 +62,6 @@
       transform: scale(1.05);
     }
 
-    /* ========== Profile Image ========== */
     .profile-img {
       display: block;
       margin: 30px auto 20px auto;
@@ -74,7 +73,8 @@
       background-position: center;
       background-image: url('images/profile.png');
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      animation: zoomIn 1.5s ease;
+     animation: stampDown 1.5s ease-out;
+  transition: transform 0.3s ease-in-out;
     }
 
     @keyframes zoomIn {
@@ -156,7 +156,6 @@
       transform: scale(1.1);
     }
 
-    /* ========== Footer ========== */
     footer {
       text-align: center;
       font-weight: bold;
@@ -185,7 +184,7 @@
       }
     }
 
-    /* ========== Media Queries ========== */
+
     @media (max-width: 1024px) {
       .hero h1 {
         font-size: 2.2rem;
