@@ -2,211 +2,239 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Balaji Koushik S Profile</title>
   <style>
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: #333;
-  background-image: url('images/bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-x: hidden;
-  animation: fadeInBody 1.5s ease-in;
-}
+    /* ========== Global Styles ========== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #333;
+      background-image: url('images/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      animation: fadeInBody 1.5s ease-in;
+    }
 
-@keyframes fadeInBody {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-/* Navbar */
-nav {
-  background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
-  color: white;
-  display: flex;
-  justify-content: center;
-  gap: 200px;
-  padding: 10px 0;
-  animation: slideDown 1s ease-out;
-}
+    /* ========== Navbar ========== */
+    nav {
+      background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 10px 15px;
+      animation: slideDown 1s ease-out;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-nav a:hover {
-  color: #00adb5;
-  transform: scale(1.05);
-}
+    nav a:hover {
+      color: #00adb5;
+      transform: scale(1.05);
+    }
 
-nav .contact-btn a {
-  padding: 6px 16px;
-  background-color: #00adb5;
-  color: white;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
+    /* ========== Profile Image ========== */
+    .profile-img {
+      display: block;
+      margin: 30px auto 20px auto;
+      width: 140px;
+      height: 170px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background-size: cover;
+      background-position: center;
+      background-image: url('images/profile.png');
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      animation: zoomIn 1.5s ease;
+    }
 
-nav .contact-btn a:hover {
-  background-color: #007c87;
-  transform: scale(1.05);
-}
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-.footer-logo {
-  background-image: url('images/bksicon.png');
-  background-size: cover;
-  background-position: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
+    /* ========== Sections ========== */
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
 
-/* Profile Image Animation */
-.profile-img {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  width: 140px;
-  height: 170px;
-  border-radius: 50%;
-  margin-top: 100px;
-  margin-right: 280px;
-  border: 2px solid #fff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  animation: zoomIn 2s ease;
-}
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
 
-/* Sections */
-section {
-  max-width: 900px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    h2 {
+      margin-bottom: 10px;
+      color: #00adb5;
+    }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #222;
-}
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #555;
-}
+    ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
 
-/* Titles and Lists */
-h2 {
-  margin-bottom: 10px;
-  color: #00adb5;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-.resume-section {
-  line-height: 1.6;
-}
-.resume-section h3 {
-  margin-top: 20px;
-  color: #222;
-}
-.contact-links a {
-  display: inline-block;
-  margin-right: 20px;
-  color: #00adb5;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-.contact-links a:hover {
-  color: #007c87;
-  transform: scale(1.1);
-}
+    .resume-section h3 {
+      margin-top: 20px;
+      color: #222;
+    }
 
-/* Footer */
-footer {
-  text-align: center;
-  font-weight: bold;
-  color: white;
-  padding: 20px 0;
-  margin-top: 40px;
-  border-top: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  animation: fadeInFooter 2s ease;
-}
+    .contact-links a {
+      display: inline-block;
+      margin-right: 20px;
+      color: #00adb5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
 
-@keyframes fadeInFooter {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .contact-links a:hover {
+      color: #007c87;
+      transform: scale(1.1);
+    }
 
-/* Responsive Design (Same as your original with minor tweak to animations if needed) */
-/* Your original media queries remain unchanged — add if necessary for layout changes */
+    /* ========== Footer ========== */
+    footer {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      padding: 20px 0;
+      margin-top: 40px;
+      background: rgba(0, 0, 0, 0.8);
+      animation: fadeInFooter 2s ease;
+    }
+
+    @keyframes fadeInFooter {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== Media Queries ========== */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .profile-img {
+        width: 130px;
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 150px;
+        margin: 20px auto;
+      }
+
+      section {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .contact-links a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-img {
+        width: 100px;
+        height: 120px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+    }
 
   </style>
 </head>
@@ -216,10 +244,11 @@ footer {
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#resume">Resume & details</a>
+    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
-    <img src="images/profile.png" alt="Profile Image" class="profile-img" />
   </nav>
+
+  <div class="profile-img"></div>
 
   <section id="home" class="hero">
     <h1>Hello, I'm Balaji Koushik S</h1>
@@ -229,58 +258,51 @@ footer {
 
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I am a passionate web developer with hands-on experience in building dynamic web applications using modern frameworks and technologies.
-    </p>
+    <p>I am a passionate web developer with hands-on experience in building dynamic web applications using modern frameworks and technologies.</p>
     <h3>Education</h3>
-    <p><strong>Vemana Institute of Technology, Bengaluru</strong><br />
-      B.E. in Electronics and Communication (Dec. 2020 – May 2024)</p>
-    <p><strong>Sahyadri PU College, Kolar</strong><br />
-      Pre-University (May 2018 – July 2020)</p>
+    <p><strong>Vemana Institute of Technology, Bengaluru</strong><br />B.E. in Electronics and Communication (Dec. 2020 – May 2024)</p>
+    <p><strong>Sahyadri PU College, Kolar</strong><br />Pre-University (May 2018 – July 2020)</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li><strong>AI-based Smart Hydroponics System</strong> (Mar 2024 – May 2024)<br />
-        Developed using Spigot API, Java, Maven, TravisCI, and Git.</li>
-      <li><strong>Waste Management System using IoT</strong> (June 2023)<br />
-        Python, Flask, React, PostgreSQL, Docker.</li>
+      <li><strong>AI-based Smart Hydroponics System</strong><br />Spigot API, Java, Maven, TravisCI, Git</li>
+      <li><strong>Waste Management System using IoT</strong><br />Python, Flask, React, PostgreSQL, Docker</li>
     </ul>
   </section>
 
   <section id="resume">
     <h2>Resume</h2>
+    <p>
+      <a href="assets/CV0.pdf" target="_blank"
+         style="color: blue; text-decoration: none; border: 2px solid blue; padding: 8px 12px; display: inline-block; border-radius: 5px;">
+        View Resume
+      </a>
+    </p>
     <div class="resume-section">
-      <p>
-        <a href="assets/CV0.pdf" target="_blank"
-           style="color: blue; text-decoration: none; border: 2px solid blue; padding: 8px 12px; display: inline-block; border-radius: 5px;">
-          View Resume
-        </a>
-      </p>
       <h3>Experience</h3>
       <p><strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb 2025)</p>
       <p><strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)</p>
-      <h3>Achievements & Certifications</h3>
-      <p>ICWITE 2021 paper, IIT Bombay eSim, Udemy & Quntnex certifications.</p>
-      <h3>Technical Skills</h3>
+      <h3>Achievements</h3>
+      <p>ICWITE 2021, eSim IIT Bombay, Udemy & Quntnex certifications</p>
+      <h3>Skills</h3>
       <p>Java, Python, C/C++, SQL, JavaScript, React, Django, Angular</p>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Feel free to connect with me on:</p>
+    <p>Connect with me on:</p>
     <div class="contact-links">
       <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">💼 LinkedIn</a>
       <a href="https://wa.me/916361656372" target="_blank">💬 WhatsApp</a>
-      <a href="https://github.com/balajikoushik2003?tab=overview&" target="_blank">🐙 GitHub</a>
+      <a href="https://github.com/balajikoushik2003" target="_blank">🐙 GitHub</a>
       <a href="https://www.instagram.com/balajikoushiks/" target="_blank">📸 Instagram</a>
     </div>
   </section>
 
   <footer>
-    <div class="footer-logo"></div>
     Designed and Developed by Balaji Koushik S
   </footer>
 
