@@ -45,6 +45,17 @@
       animation: slideDown 1s ease-out;
     }
 
+    /* Desktop/laptop only — center the nav links, mobile layout is untouched
+       since this media query only applies above the 1024px breakpoint where
+       the hamburger menu takes over. */
+    @media (min-width: 1025px) {
+      nav .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
     @keyframes slideDown {
       from { transform: translateY(-100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -291,7 +302,7 @@
   <!-- ===== Navigation with Hamburger ===== -->
   <nav>
     <!-- left side can be empty or brand; we put hamburger on the right -->
-    <div style="font-weight: bold; color: #00adb5;">BKS</div>
+    <!-- <div style="font-weight: bold; color: #00adb5;">BKS</div> -->
     <div class="hamburger" id="hamburgerIcon" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </div>
