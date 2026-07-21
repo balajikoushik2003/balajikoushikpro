@@ -207,6 +207,270 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ========== Resume action buttons ========== */
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 2px solid #00adb5;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .resume-btn.view {
+      background: #00adb5;
+      color: #fff;
+    }
+
+    .resume-btn.view:hover {
+      background: #007c87;
+      border-color: #007c87;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.35);
+    }
+
+    .resume-btn.download {
+      background: #fff;
+      color: #00adb5;
+    }
+
+    .resume-btn.download:hover {
+      background: #00adb5;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.25);
+    }
+
+    /* ========== Resume Dialog (A4 preview) ========== */
+    .resume-dialog-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.72);
+      z-index: 1200;
+      padding: 30px 16px;
+      overflow-y: auto;
+      animation: overlayFade 0.25s ease;
+    }
+
+    .resume-dialog-overlay.open {
+      display: block;
+    }
+
+    @keyframes overlayFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .resume-dialog-topbar {
+      max-width: 794px;
+      margin: 0 auto 14px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #f2f2f2;
+    }
+
+    .resume-dialog-topbar span {
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+
+    .resume-dialog-close {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .resume-dialog-close:hover {
+      background: #00adb5;
+      transform: rotate(90deg);
+    }
+
+    /* A4 page: 210mm x 297mm, scaled to px at 96dpi (~794 x 1123) */
+    .resume-page {
+      width: 794px;
+      max-width: 100%;
+      min-height: 1123px;
+      margin: 0 auto 30px auto;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+      padding: 60px 64px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #222;
+      animation: pageRise 0.35s ease;
+    }
+
+    @keyframes pageRise {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .rp-header {
+      text-align: center;
+      border-bottom: 2px solid #00adb5;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+
+    .rp-header h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+
+    .rp-header .rp-role {
+      font-family: Arial, sans-serif;
+      color: #00adb5;
+      font-weight: bold;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    .rp-header .rp-contact {
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .rp-header .rp-contact a {
+      color: #007c87;
+      text-decoration: none;
+    }
+
+    .rp-section {
+      margin-bottom: 20px;
+    }
+
+    .rp-section h2 {
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #00adb5;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    .rp-summary {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #333;
+    }
+
+    .rp-entry {
+      margin-bottom: 12px;
+    }
+
+    .rp-entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: Arial, sans-serif;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .rp-entry-head .rp-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+
+    .rp-entry-head .rp-date {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .rp-entry-sub {
+      display: flex;
+      justify-content: space-between;
+      font-style: italic;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .rp-entry ul {
+      margin-top: 6px;
+      padding-left: 18px;
+    }
+
+    .rp-entry ul li {
+      list-style: disc;
+      border-bottom: none;
+      padding: 2px 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #333;
+    }
+
+    .rp-skills-grid {
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.9;
+    }
+
+    .rp-skills-grid strong {
+      color: #1a1a1a;
+    }
+
+    .rp-cert-list {
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.8;
+    }
+
+    .rp-cert-list a {
+      color: #007c87;
+      text-decoration: none;
+    }
+
+    .rp-cert-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Print: strip everything but the page itself, at true A4 size */
+    @media print {
+      body * { visibility: hidden; }
+      .resume-page, .resume-page * { visibility: visible; }
+      .resume-page {
+        position: absolute;
+        top: 0; left: 0;
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 18mm 16mm;
+      }
+      .resume-dialog-topbar, .resume-dialog-close { display: none; }
+      @page { size: A4; margin: 0; }
+    }
+
     /* ========== Responsive ========== */
     /* Tablet & mobile: show hamburger, hide nav links by default */
     @media (max-width: 1024px) {
@@ -273,6 +537,14 @@
       .contact-links a {
         display: block;
         margin: 10px 0;
+      }
+
+      .resume-page {
+        padding: 34px 24px;
+      }
+
+      .rp-header h1 {
+        font-size: 1.5rem;
       }
     }
 
@@ -342,16 +614,18 @@
   <section id="resume">
     <h2>Resume</h2>
 
-    <p>
-        <a href="BalajiKoushik_Resume .pdf"
-           download
-           class="resume-btn">
-            📄 Download Resume
-        </a>
-    </p>
-</section>
+    <div class="resume-actions">
+      <button type="button" class="resume-btn view" id="viewResumeBtn">
+        <i class="fas fa-eye"></i> View Resume
+      </button>
+      <a href="BalajiKoushik_Resume.pdf" download class="resume-btn download">
+        📄 Download Resume
+      </a>
+    </div>
+
     <div class="resume-section">
       <h3>Experience</h3>
+      <p><strong>Web Programmer I</strong> — Quess Corp Ltd. (assigned to Resideo) (May 2025 – Present)</p>
       <p><strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb 2025)</p>
       <p><strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)</p>
       <h3>Achievements</h3>
@@ -376,6 +650,154 @@
     <div class="footer-logo"></div>
     Designed and Developed by Balaji Koushik S
   </footer>
+
+  <!-- ===== Resume Dialog (A4 presentation) ===== -->
+  <div class="resume-dialog-overlay" id="resumeDialogOverlay" role="dialog" aria-modal="true" aria-label="Resume preview">
+    <div class="resume-dialog-topbar">
+      <span>Resume Preview</span>
+      <button type="button" class="resume-dialog-close" id="resumeDialogClose" aria-label="Close resume preview">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="resume-page">
+      <div class="rp-header">
+        <h1>Balaji Koushik S</h1>
+        <div class="rp-role">Full Stack Web Developer</div>
+        <div class="rp-contact">
+          +91 6361656372 &nbsp;|&nbsp;
+          <a href="mailto:balajikoushik18@gmail.com">balajikoushik18@gmail.com</a> &nbsp;|&nbsp;
+          <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp;
+          <a href="https://github.com/balajikoushik2003" target="_blank">github.com/balajikoushik2003</a>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Summary</h2>
+        <p class="rp-summary">
+          Full Stack Web Developer with 2+ years of experience building performant, accessible web applications
+          with React.js, Next.js, Node.js, and Shopify Liquid. Focused on WCAG 2.1 AA accessibility engineering,
+          RESTful API design, and Microsoft Azure cloud integration. Track record of shipping measurable
+          performance gains and clean, maintainable code within Agile teams.
+        </p>
+      </div>
+
+      <div class="rp-section">
+        <h2>Experience</h2>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Web Programmer I</span>
+            <span class="rp-date">May 2025 – Present</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Quess Corp Limited (assigned to Resideo Smart Home Technologies)</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Engineer WCAG 2.1 AA-compliant UI components for HoneywellHome and First Alert Shopify storefronts with React.js, Next.js, and Liquid, resolving keyboard-navigation, focus-order, and screen-reader defects across mega menus, product galleries, and search.</li>
+            <li>Build and optimize front-end features with React.js, Next.js, and Node.js, cutting page load times by up to 30%.</li>
+            <li>Integrate Microsoft Azure services for authentication, storage, and CI/CD, streamlining release workflows.</li>
+            <li>Manage enterprise content through Sitecore CMS and XML, improving content-delivery accuracy and turnaround.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Full Stack Developer</span>
+            <span class="rp-date">Aug 2024 – Feb 2025</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Futureol Infotech Pvt. Ltd.</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Delivered full-stack applications with Angular, Node.js, Express, and MySQL/PostgreSQL.</li>
+            <li>Designed and secured REST APIs using JWT and OAuth 2.0 authentication.</li>
+            <li>Tuned backend logic and database queries, improving average response time by 25%.</li>
+            <li>Partnered with cross-functional Agile teams, using Git and JIRA to plan, track, and ship releases.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Full Stack Developer Intern</span>
+            <span class="rp-date">Aug 2023 – Oct 2023</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Take It Smart Pvt. Ltd.</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Built an e-commerce grocery platform covering authentication, product management, and order workflows.</li>
+            <li>Integrated third-party REST APIs and resolved defects through systematic debugging and testing, improving platform stability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Projects</h2>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">AI-Based Smart Hydroponics System — Python, Machine Learning, IoT</span>
+            <span class="rp-date">2024</span>
+          </div>
+          <ul>
+            <li>Designed an IoT-based hydroponics platform applying KNN, ANN, and Lasso regression models for predictive crop optimization.</li>
+            <li>Achieved a plant growth rate of 0.9 cm/day through real-time sensor-data analysis and model tuning; presented findings at the ICWITE conference.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">IoT-Based Waste Management System — Python, Flask, React, PostgreSQL</span>
+            <span class="rp-date">2023</span>
+          </div>
+          <ul>
+            <li>Built a smart waste-segregation system that classifies waste automatically using sensor input.</li>
+            <li>Developed a real-time monitoring dashboard that improved operational visibility and response time.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Technical Skills</h2>
+        <div class="rp-skills-grid">
+          <strong>Languages:</strong> Java, Python, JavaScript, SQL<br/>
+          <strong>Frontend:</strong> React.js, Next.js, Angular, Shopify/Liquid, HTML5, CSS3<br/>
+          <strong>Backend:</strong> Node.js, Express.js, Django, Flask<br/>
+          <strong>Databases:</strong> MySQL, PostgreSQL<br/>
+          <strong>Cloud/DevOps:</strong> Microsoft Azure, Docker, Jenkins, Git, GitHub<br/>
+          <strong>Other:</strong> RESTful API Design, WCAG 2.1 AA Accessibility, Sitecore CMS, JIRA, Agile/Scrum
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Certifications</h2>
+        <div class="rp-cert-list">
+          <a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)<br/>
+          <a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">Web Development Bootcamp</a> — Udemy (2022)<br/>
+          <a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Course</a> — Quntnex (2024)<br/>
+          <a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Education</h2>
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Vemana Institute of Technology</span>
+            <span class="rp-date">2020 – 2024</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>B.E. Electronics and Communication</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== Hamburger toggle script ===== -->
   <script>
@@ -414,6 +836,34 @@
           const icon = hamburger.querySelector('i');
           icon.className = 'fas fa-bars';
         }
+      });
+    })();
+
+    // ===== Resume dialog (A4 preview) toggle =====
+    (function() {
+      const viewBtn = document.getElementById('viewResumeBtn');
+      const overlay = document.getElementById('resumeDialogOverlay');
+      const closeBtn = document.getElementById('resumeDialogClose');
+
+      function openDialog() {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDialog() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      viewBtn.addEventListener('click', openDialog);
+      closeBtn.addEventListener('click', closeDialog);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeDialog();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
       });
     })();
   </script>
