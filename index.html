@@ -464,6 +464,165 @@
       text-decoration: underline;
     }
 
+    /* ========== Project cards ========== */
+    .project-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    .project-info strong {
+      display: block;
+      color: #222;
+      font-size: 1rem;
+    }
+
+    .project-info span {
+      color: #666;
+      font-size: 0.88rem;
+    }
+
+    .project-explore-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.88rem;
+      border: 2px solid #00adb5;
+      background: #fff;
+      color: #00adb5;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .project-explore-btn:hover {
+      background: #00adb5;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.3);
+    }
+
+    /* ========== Project summary dialog ========== */
+    .project-dialog-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.72);
+      z-index: 1200;
+      padding: 30px 16px;
+      overflow-y: auto;
+      animation: overlayFade 0.25s ease;
+    }
+
+    .project-dialog-overlay.open {
+      display: block;
+    }
+
+    .project-dialog-topbar {
+      max-width: 700px;
+      margin: 0 auto 14px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #f2f2f2;
+    }
+
+    .project-dialog-topbar span {
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+
+    .project-dialog-close {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .project-dialog-close:hover {
+      background: #00adb5;
+      transform: rotate(90deg);
+    }
+
+    .project-page {
+      width: 700px;
+      max-width: 100%;
+      margin: 0 auto 30px auto;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+      border-radius: 12px;
+      padding: 40px 44px;
+      animation: pageRise 0.35s ease;
+    }
+
+    .project-page h2 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .project-page .pp-tech {
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #00adb5;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .project-page .pp-meta {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 18px;
+    }
+
+    .project-page .pp-summary {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 18px;
+    }
+
+    .project-page h3 {
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #00adb5;
+      margin-bottom: 8px;
+      margin-top: 18px;
+    }
+
+    .project-page ul {
+      padding-left: 20px;
+      margin-bottom: 6px;
+    }
+
+    .project-page ul li {
+      list-style: disc;
+      border-bottom: none;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 3px 0;
+      color: #333;
+    }
+
     /* Print: strip everything but the page itself, at true A4 size */
     @media print {
       body * { visibility: hidden; }
@@ -583,8 +742,6 @@
 
   <!-- ===== Navigation with Hamburger ===== -->
   <nav>
-    <!-- left side can be empty or brand; we put hamburger on the right -->
-    <!-- <div style="font-weight: bold; color: #00adb5;">BKS</div> -->
     <div class="hamburger" id="hamburgerIcon" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </div>
@@ -615,10 +772,26 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li><strong>AI-based Smart Hydroponics System</strong><br />Spigot API, Java, Maven, TravisCI, Git</li>
-      <li><strong>Waste Management System using IoT</strong><br />Python, Flask, React, PostgreSQL, Docker</li>
-    </ul>
+
+    <div class="project-item">
+      <div class="project-info">
+        <strong>AI-based Smart Hydroponics System</strong>
+        <span>ESP8266, Arduino, Python, KNN/ANN/Lasso Regression, IoT</span>
+      </div>
+      <button type="button" class="project-explore-btn" data-project="hydroponics">
+        <i class="fas fa-arrow-right"></i> Explore
+      </button>
+    </div>
+
+    <div class="project-item">
+      <div class="project-info">
+        <strong>Waste Management System using IoT</strong>
+        <span>Raspberry Pi 3, Python, Sensor Fusion, IoT</span>
+      </div>
+      <button type="button" class="project-explore-btn" data-project="waste-management">
+        <i class="fas fa-arrow-right"></i> Explore
+      </button>
+    </div>
   </section>
 
   <section id="resume"> 
@@ -639,7 +812,7 @@
       <p><strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb 2025)</p>
       <p><strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)</p>
       <h3>Achievements</h3>
-      <p>ICWITE 2021 conference presentation</p>
+      <p>ICWITE 2021 conference presentation; IEEE ICITEICS 2024 paper accepted</p>
       <h3>Certifications</h3>
       <p>
         <a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)<br/>
@@ -668,6 +841,62 @@
     Designed and Developed by Balaji Koushik S
   </footer>
 
+  <!-- ===== Project Summary Dialogs ===== -->
+  <div class="project-dialog-overlay" id="projectDialog-hydroponics" role="dialog" aria-modal="true" aria-label="AI-based Smart Hydroponics System summary">
+    <div class="project-dialog-topbar">
+      <span>Project Summary</span>
+      <button type="button" class="project-dialog-close" aria-label="Close project summary">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="project-page">
+      <h2>AI-Based Smart Hydroponics System</h2>
+      <div class="pp-tech">ESP8266 &middot; Arduino &middot; Python &middot; KNN &middot; ANN &middot; Lasso Regression &middot; IoT</div>
+      <div class="pp-meta">Project Work Phase-2 (18ECP78) &middot; Vemana Institute of Technology &middot; 2023-24</div>
+      <p class="pp-summary">
+        A soil-less, self-controlled hydroponics system that uses an IoT sensor network (DHT11 temperature/humidity,
+        pH sensor, moisture sensor, and ultrasonic water-level sensor) feeding two ESP8266 modules — one for sensing,
+        one for actuation (relay, pump, horticulture LED). Sensor data is logged and classified with machine learning
+        (KNN, ANN, and Lasso regression) to keep nutrient levels, pH, and humidity in an optimal range, with an
+        added anti-bacterial setup to curb water-borne diseases common in hydroponic setups.
+      </p>
+      <h3>Key Results</h3>
+      <ul>
+        <li>Neural network classifier trained on sensor data (temperature, humidity, water level, pH) reached 99.98% test accuracy.</li>
+        <li>End-to-end pipeline: ESP8266 sensor readings → Java server (NetBeans) logging to CSV → ML model → mobile app status ("Normal"/"Abnormal").</li>
+        <li>Physical prototype built and tested with live plants, growing crops without soil using less water than traditional methods.</li>
+        <li>Work accepted and presented at the IEEE ICITEICS 2024 conference with positive reviewer feedback.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-dialog-overlay" id="projectDialog-waste-management" role="dialog" aria-modal="true" aria-label="Waste Management System using IoT summary">
+    <div class="project-dialog-topbar">
+      <span>Project Summary</span>
+      <button type="button" class="project-dialog-close" aria-label="Close project summary">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="project-page">
+      <h2>Waste Management System using IoT</h2>
+      <div class="pp-tech">Raspberry Pi 3 &middot; Python &middot; IR/Proximity/Moisture/Gas/Ultrasonic Sensors &middot; IoT</div>
+      <div class="pp-meta">Mini-Project (18ECMP68) &middot; Vemana Institute of Technology &middot; 2022-23</div>
+      <p class="pp-summary">
+        A smart waste-segregation system built around a Raspberry Pi 3 that automatically classifies waste into
+        metal, dry, and wet streams at the point of disposal. An IR sensor detects when waste is placed, an
+        inductive proximity sensor checks for metal, a moisture sensor distinguishes wet from dry waste, and a
+        gas sensor flags harmful gases from wet waste — each step routed to the correct bin via a servo motor and
+        reported on an LCD display with buzzer alerts.
+      </p>
+      <h3>Key Results</h3>
+      <ul>
+        <li>Working Proteus simulation validated the full sensor-to-LCD-to-servo logic (Metal/Dry/Wet detection, harmful-gas alert).</li>
+        <li>An ultrasonic sensor tracks bin fill level, triggering a cloud upload and SMS alert to concerned authorities once full.</li>
+        <li>Reduces manual sorting and lowers ragpicker exposure to hazardous waste through automatic segregation.</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- ===== Resume Dialog (A4 presentation) ===== -->
   <div class="resume-dialog-overlay" id="resumeDialogOverlay" role="dialog" aria-modal="true" aria-label="Resume preview">
     <div class="resume-dialog-topbar">
@@ -684,10 +913,8 @@
         <div class="rp-contact">
           +91 6361656372 &nbsp;|&nbsp;
           <a href="mailto:balajikoushik18@gmail.com">balajikoushik18@gmail.com</a> &nbsp;|&nbsp;
-          <!-- <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp; -->
           <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp;
           <a href="https://github.com/balajikoushik2003" target="_blank">github.com/balajikoushik2003</a>
-          
         </div>
       </div>
 
@@ -759,23 +986,23 @@
 
         <div class="rp-entry">
           <div class="rp-entry-head">
-            <span class="rp-title">AI-Based Smart Hydroponics System — Python, Machine Learning, IoT</span>
-            <span class="rp-date">2024</span>
+            <span class="rp-title">AI-Based Smart Hydroponics System — ESP8266, Arduino, Python, Machine Learning</span>
+            <span class="rp-date">2023–24</span>
           </div>
           <ul>
-            <li>Designed an IoT-based hydroponics platform applying KNN, ANN, and Lasso regression models for predictive crop optimization.</li>
-            <li>Achieved a plant growth rate of 0.9 cm/day through real-time sensor-data analysis and model tuning; presented findings at the ICWITE conference.</li>
+            <li>Designed a self-controlled, IoT-based hydroponics platform applying KNN, ANN, and Lasso regression models for predictive crop optimization, reaching 99.98% test accuracy.</li>
+            <li>Built the sensor-to-cloud pipeline (ESP8266 → Java server → ML model → mobile status app) and presented findings at the IEEE ICITEICS 2024 conference.</li>
           </ul>
         </div>
 
         <div class="rp-entry">
           <div class="rp-entry-head">
-            <span class="rp-title">IoT-Based Waste Management System — Python, Flask, React, PostgreSQL</span>
-            <span class="rp-date">2023</span>
+            <span class="rp-title">Waste Management System using IoT — Raspberry Pi 3, Python</span>
+            <span class="rp-date">2022–23</span>
           </div>
           <ul>
-            <li>Built a smart waste-segregation system that classifies waste automatically using sensor input.</li>
-            <li>Developed a real-time monitoring dashboard that improved operational visibility and response time.</li>
+            <li>Built a smart waste-segregation system that classifies waste into metal, dry, and wet streams automatically using multi-sensor input.</li>
+            <li>Added bin-level monitoring with cloud + SMS alerts to improve collection response time.</li>
           </ul>
         </div>
       </div>
@@ -824,11 +1051,9 @@
       const hamburger = document.getElementById('hamburgerIcon');
       const navLinks = document.getElementById('navLinks');
 
-      // toggle class 'open' on click
       hamburger.addEventListener('click', function(e) {
         e.stopPropagation();
         navLinks.classList.toggle('open');
-        // optionally change icon (bars -> times)
         const icon = hamburger.querySelector('i');
         if (navLinks.classList.contains('open')) {
           icon.className = 'fas fa-times';
@@ -837,7 +1062,6 @@
         }
       });
 
-      // close menu when a link is clicked (optional but good UX)
       const links = navLinks.querySelectorAll('a');
       links.forEach(link => {
         link.addEventListener('click', function() {
@@ -847,7 +1071,6 @@
         });
       });
 
-      // close menu when clicking outside (optional)
       document.addEventListener('click', function(event) {
         const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
         if (!isClickInside && navLinks.classList.contains('open')) {
@@ -883,6 +1106,39 @@
 
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
+      });
+    })();
+
+    // ===== Project summary dialogs toggle =====
+    (function() {
+      const exploreButtons = document.querySelectorAll('.project-explore-btn');
+
+      exploreButtons.forEach(btn => {
+        const key = btn.getAttribute('data-project');
+        const overlay = document.getElementById('projectDialog-' + key);
+        if (!overlay) return;
+
+        const closeBtn = overlay.querySelector('.project-dialog-close');
+
+        btn.addEventListener('click', function() {
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+
+        function closeDialog() {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeDialog);
+
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeDialog();
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
+        });
       });
     })();
   </script>
