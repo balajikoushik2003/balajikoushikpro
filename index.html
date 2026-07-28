@@ -66,6 +66,85 @@
       margin-left: 10px;
     }
 
+    /* ----- internship entry (with explore button on RHS) ----- */
+    .internship-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      background: #f0f6fe;
+      padding: 1.2rem 1.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      border: 2px solid #1f6e8c;
+      transition: 0.2s;
+    }
+
+    .internship-entry:hover {
+      background: #e4edf8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(31,110,140,0.15);
+    }
+
+    .internship-info {
+      flex: 1;
+    }
+
+    .internship-info strong {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0a1e2c;
+      margin-bottom: 4px;
+    }
+
+    .internship-info .meta {
+      font-size: 0.95rem;
+      color: #2d4a5e;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+    }
+
+    .internship-info .meta i {
+      color: #1f6e8c;
+      width: 1.2rem;
+    }
+
+    .internship-explore-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 2px solid #1f6e8c;
+      background: #1f6e8c;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-family: inherit;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 10px rgba(31,110,140,0.2);
+    }
+
+    .internship-explore-btn i {
+      font-size: 0.9rem;
+    }
+
+    .internship-explore-btn:hover {
+      background: #0d4b63;
+      border-color: #0d4b63;
+      transform: scale(1.04);
+      box-shadow: 0 8px 20px rgba(31,110,140,0.35);
+    }
+
+    .internship-explore-btn:active {
+      transform: scale(0.96);
+    }
+
     /* ----- project row (explore button on RHS) ----- */
     .project-row {
       display: flex;
@@ -345,6 +424,21 @@
         font-size: 1.6rem;
       }
 
+      .internship-entry {
+        flex-wrap: wrap;
+        padding: 1rem 1.2rem;
+      }
+
+      .internship-info strong {
+        font-size: 1.1rem;
+      }
+
+      .internship-explore-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.7rem;
+      }
+
       .project-row {
         flex-wrap: wrap;
         padding: 1rem 1.2rem;
@@ -388,6 +482,21 @@
     <small>Full Stack Web Development</small>
     <span class="badge">Aug–Oct 2023</span>
   </h1>
+
+  <!-- ===== INTERNSHIP ENTRY with EXPLORE BUTTON on RHS ===== -->
+  <div class="internship-entry">
+    <div class="internship-info">
+      <strong>🏢 Take It Smart Pvt. Ltd.</strong>
+      <div class="meta">
+        <span><i class="far fa-calendar-alt"></i> Aug 2023 – Oct 2023</span>
+        <span><i class="fas fa-map-marker-alt"></i> Bengaluru, India</span>
+        <span><i class="fas fa-briefcase"></i> Full Stack Developer Intern</span>
+      </div>
+    </div>
+    <button class="internship-explore-btn" data-project="takeitsmart">
+      <i class="fas fa-arrow-right"></i> Explore
+    </button>
+  </div>
 
   <!-- Internship summary card (what we learned & made) -->
   <div class="summary-card">
@@ -451,6 +560,56 @@
     <i class="fas fa-laptop-code"></i> Internship report · Full Stack Web Development · 2023
   </div>
 
+</div>
+
+<!-- ===== DIALOG: Take It Smart Internship ===== -->
+<div class="project-dialog-overlay" id="projectDialog-takeitsmart" role="dialog" aria-modal="true">
+  <div class="project-dialog-topbar">
+    <span><i class="fas fa-building"></i> Take It Smart Pvt. Ltd.</span>
+    <button class="project-dialog-close" aria-label="Close"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="project-page">
+    <h2>🏢 Take It Smart Pvt. Ltd. – Full Stack Developer Intern</h2>
+    <div class="pp-tech">Django · Python · PostgreSQL · HTML · CSS · JavaScript</div>
+    <div class="pp-meta">Aug 2023 – Oct 2023 · Bengaluru, India</div>
+    <p class="pp-summary">
+      Worked as a Full Stack Developer Intern at Take It Smart Pvt. Ltd., where I built
+      a complete e‑commerce grocery platform from scratch. This hands-on experience
+      gave me real-world exposure to agile development, version control, and
+      production-ready deployment.
+    </p>
+    <h3>💼 Key Responsibilities</h3>
+    <ul>
+      <li><strong>Full Stack Development:</strong> Built the entire Grocery Shop Website using Django (backend) and HTML/CSS/JavaScript (frontend).</li>
+      <li><strong>Database Design:</strong> Designed PostgreSQL schemas for products, users, orders, and cart management.</li>
+      <li><strong>Authentication &amp; Security:</strong> Implemented user registration, login, password hashing, and session management.</li>
+      <li><strong>Payment Integration:</strong> Integrated secure payment gateway for checkout transactions.</li>
+      <li><strong>Admin Panel:</strong> Developed an admin dashboard for managing inventory, orders, and user data.</li>
+      <li><strong>Testing &amp; Debugging:</strong> Performed unit testing, integration testing, and user acceptance testing to ensure platform stability.</li>
+    </ul>
+    <h3>🧠 What I Learned</h3>
+    <ul>
+      <li>Building production-ready RESTful APIs with Django REST Framework.</li>
+      <li>Database optimization and query tuning in PostgreSQL.</li>
+      <li>Frontend-backend integration with AJAX and fetch API.</li>
+      <li>Responsive UI design principles using CSS Flexbox and Grid.</li>
+      <li>Security best practices: CSRF protection, XSS prevention, HTTPS, environment variables.</li>
+      <li>Agile workflow with Git version control and JIRA tracking.</li>
+    </ul>
+    <h3>🏆 Outcomes</h3>
+    <ul>
+      <li>Successfully delivered a fully functional e-commerce platform within the internship duration.</li>
+      <li>Received positive feedback for clean code, responsive design, and robust backend architecture.</li>
+      <li>Gained practical experience in full-stack development lifecycle from planning to deployment.</li>
+    </ul>
+    <div class="highlight-box">
+      <i class="fas fa-link" style="color:#1f6e8c; margin-right:8px;"></i>
+      <a href="https://github.com/balajikoushik2003/bksgrocery.com/settings/pages" target="_blank" style="font-weight:600; color:#1f6e8c; text-decoration:none; border-bottom:1px solid #1f6e8c;">
+        View Project on GitHub
+      </a>
+      &nbsp;·&nbsp; Full Stack Grocery Platform
+    </div>
+  </div>
 </div>
 
 <!-- ===== DIALOG: Grocery project ===== -->
@@ -537,7 +696,7 @@
 <script>
   (function() {
     // ----- open/close project dialogs -----
-    const exploreBtns = document.querySelectorAll('.project-explore-btn');
+    const exploreBtns = document.querySelectorAll('.project-explore-btn, .internship-explore-btn');
     const dialogs = {};
 
     // gather all dialogs
@@ -597,9 +756,6 @@
         }
       }
     });
-
-    // (optional) close if any other dialog opens (keep only one open at a time)
-    // but user can have only one open anyway
   })();
 </script>
 
