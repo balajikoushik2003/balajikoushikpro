@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Balaji Koushik S · Internship Summary</title>
-  <!-- Font Awesome 6 (free) -->
+  <title>Balaji Koushik S Profile</title>
+  <!-- Font Awesome for hamburger icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ----- global reset & base ----- */
+    /* ========== Global Styles ========== */
     * {
       margin: 0;
       padding: 0;
@@ -15,286 +15,268 @@
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-      background: #f4f7fc;
-      color: #1e2a3a;
-      padding: 2rem 1rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-image: url('images/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      animation: fadeInBody 1.5s ease-in;
     }
 
-    .container {
-      max-width: 1000px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 28px;
-      box-shadow: 0 20px 40px -12px rgba(0,20,40,0.25);
-      padding: 2rem 2rem 2.5rem;
-      transition: 0.2s;
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+    /* ========== Navigation ========== */
+    nav {
+      background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
+      color: white;
+      padding: 20px 20px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      animation: slideDown 1s ease-out;
+    }
+
+    /* Desktop/laptop only — center the nav links, mobile layout is untouched
+       since this media query only applies above the 1024px breakpoint where
+       the hamburger menu takes over. */
+    @media (min-width: 1025px) {
+      nav .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #00adb5;
+      transform: scale(1.05);
+    }
+
+    /* Hamburger icon (hidden on desktop) */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+      color: #00adb5;
+    }
+
+    /* ========== Profile Image ========== */
+    .profile-img {
+      display: block;
+      margin: 30px auto 20px auto;
+      width: 140px;
+      height: 170px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background-size: cover;
+      background-position: center;
+      background-image: url('images/profile.png');
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      animation: zoomIn 1.2s ease-out;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ========== Sections ========== */
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #00adb5;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .resume-section h3 {
+      margin-top: 20px;
+      color: #222;
+    }
+
+    .resume-section a {
+      color: #00adb5;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .resume-section a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin-right: 20px;
+      color: #00adb5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: #007c87;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      padding: 20px 0;
+      margin-top: 40px;
+      background: rgba(0, 0, 0, 0.8);
+      animation: fadeInFooter 2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 1.2rem;
-      margin-bottom: 1.8rem;
     }
 
-    h1 small {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #4a6479;
-      margin-left: 6px;
+    .footer-logo {
+      background-image: url('images/bksicon.png');
+      background-size: cover;
+      background-position: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
     }
 
-    .badge {
-      background: #0b2b40;
-      color: white;
-      font-size: 0.8rem;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      margin-left: 10px;
+    @keyframes fadeInFooter {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ----- internship entry (with explore button on RHS) ----- */
-    .internship-entry {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.2rem;
-      background: #f0f6fe;
-      padding: 1.2rem 1.8rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      border: 2px solid #1f6e8c;
-      transition: 0.2s;
-    }
-
-    .internship-entry:hover {
-      background: #e4edf8;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(31,110,140,0.15);
-    }
-
-    .internship-info {
-      flex: 1;
-    }
-
-    .internship-info strong {
-      display: block;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0a1e2c;
-      margin-bottom: 4px;
-    }
-
-    .internship-info .meta {
-      font-size: 0.95rem;
-      color: #2d4a5e;
+    /* ========== Resume action buttons ========== */
+    .resume-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem 1.5rem;
+      gap: 14px;
+      margin-top: 6px;
     }
 
-    .internship-info .meta i {
-      color: #1f6e8c;
-      width: 1.2rem;
-    }
-
-    .internship-explore-btn {
-      flex-shrink: 0;
+    .resume-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 0.7rem 1.6rem;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 1rem;
-      border: 2px solid #1f6e8c;
-      background: #1f6e8c;
-      color: white;
-      cursor: pointer;
-      transition: 0.25s ease;
-      font-family: inherit;
-      letter-spacing: 0.3px;
-      box-shadow: 0 4px 10px rgba(31,110,140,0.2);
-    }
-
-    .internship-explore-btn i {
-      font-size: 0.9rem;
-    }
-
-    .internship-explore-btn:hover {
-      background: #0d4b63;
-      border-color: #0d4b63;
-      transform: scale(1.04);
-      box-shadow: 0 8px 20px rgba(31,110,140,0.35);
-    }
-
-    .internship-explore-btn:active {
-      transform: scale(0.96);
-    }
-
-    /* ----- project row (explore button on RHS) ----- */
-    .project-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.2rem;
-      background: #f9fbfd;
-      padding: 1.2rem 1.8rem;
-      border-radius: 20px;
-      margin-bottom: 1.2rem;
-      border: 1px solid #e6edf4;
-      transition: 0.2s;
-    }
-
-    .project-row:hover {
-      background: #f2f6fc;
-      border-color: #cbdae7;
-    }
-
-    .project-info {
-      flex: 1;
-    }
-
-    .project-info strong {
-      display: block;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #0a1e2c;
-      margin-bottom: 4px;
-    }
-
-    .project-info .meta {
-      font-size: 0.9rem;
-      color: #3d5a73;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 1.2rem;
-    }
-
-    .project-info .meta i {
-      color: #1f6e8c;
-      width: 1.2rem;
-    }
-
-    .project-explore-btn {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0.65rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 2px solid #1f6e8c;
-      background: white;
-      color: #1f6e8c;
-      cursor: pointer;
-      transition: 0.2s ease;
-      font-family: inherit;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-
-    .project-explore-btn i {
-      font-size: 0.9rem;
-    }
-
-    .project-explore-btn:hover {
-      background: #1f6e8c;
-      color: white;
-      transform: scale(1.02);
-      box-shadow: 0 8px 16px -6px rgba(31,110,140,0.3);
-    }
-
-    .project-explore-btn:active {
-      transform: scale(0.96);
-    }
-
-    /* ----- additional summary card (internship highlight) ----- */
-    .summary-card {
-      background: #eaf1f9;
-      border-radius: 20px;
-      padding: 1.4rem 1.8rem;
-      margin: 2rem 0 1.2rem;
-      border-left: 6px solid #1f6e8c;
-    }
-
-    .summary-card h3 {
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #0a2a3b;
-      margin-bottom: 0.5rem;
-    }
-
-    .summary-card p {
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: #1f3b4b;
-      margin-bottom: 0.4rem;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-    }
-
-    .tech-tags span {
-      background: #d6e3ef;
-      padding: 0.25rem 1rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #0a2d3f;
-    }
-
-    .git-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 1rem;
-      font-weight: 500;
-      color: #1f6e8c;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-weight: bold;
       text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: 0.15s;
+      font-size: 0.95rem;
+      border: 2px solid #00adb5;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
     }
 
-    .git-link:hover {
-      border-bottom-color: #1f6e8c;
+    .resume-btn.view {
+      background: #00adb5;
+      color: #fff;
     }
 
-    /* ----- dialog overlay (project summary) ----- */
-    .project-dialog-overlay {
+    .resume-btn.view:hover {
+      background: #007c87;
+      border-color: #007c87;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.35);
+    }
+
+    .resume-btn.download {
+      background: #fff;
+      color: #00adb5;
+    }
+
+    .resume-btn.download:hover {
+      background: #00adb5;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.25);
+    }
+
+    /* ========== Resume Dialog (A4 preview) ========== */
+    .resume-dialog-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(10, 22, 34, 0.7);
-      backdrop-filter: blur(3px);
+      background: rgba(15, 15, 15, 0.72);
       z-index: 1200;
-      padding: 1.8rem 1.2rem;
+      padding: 30px 16px;
       overflow-y: auto;
-      animation: overlayFade 0.2s ease;
+      animation: overlayFade 0.25s ease;
     }
 
-    .project-dialog-overlay.open {
+    .resume-dialog-overlay.open {
       display: block;
     }
 
@@ -303,461 +285,606 @@
       to { opacity: 1; }
     }
 
-    .project-dialog-topbar {
-      max-width: 740px;
-      margin: 0 auto 12px auto;
+    .resume-dialog-topbar {
+      max-width: 794px;
+      margin: 0 auto 14px auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #f0f6fe;
+      color: #f2f2f2;
     }
 
-    .project-dialog-topbar span {
-      font-weight: 600;
-      letter-spacing: 0.4px;
-      font-size: 1rem;
+    .resume-dialog-topbar span {
+      font-weight: bold;
+      letter-spacing: 0.03em;
     }
 
-    .project-dialog-close {
+    .resume-dialog-close {
       background: rgba(255,255,255,0.12);
       color: #fff;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: 0.2s;
+      transition: background 0.2s, transform 0.2s;
     }
 
-    .project-dialog-close:hover {
-      background: #1f6e8c;
+    .resume-dialog-close:hover {
+      background: #00adb5;
       transform: rotate(90deg);
     }
 
-    .project-page {
-      max-width: 740px;
-      width: 100%;
-      margin: 0 auto 2rem auto;
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 20px 48px rgba(0,0,0,0.3);
-      padding: 2rem 2.4rem;
-      animation: pageRise 0.3s ease;
+    /* A4 page: 210mm x 297mm, scaled to px at 96dpi (~794 x 1123) */
+    .resume-page {
+      width: 794px;
+      max-width: 100%;
+      min-height: 1123px;
+      margin: 0 auto 30px auto;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+      padding: 60px 64px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #222;
+      animation: pageRise 0.35s ease;
     }
 
     @keyframes pageRise {
-      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    .project-page h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0a1e2c;
-      margin-bottom: 4px;
+    .rp-header {
+      text-align: center;
+      border-bottom: 2px solid #00adb5;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
     }
 
-    .project-page .pp-tech {
-      font-size: 0.85rem;
-      color: #1f6e8c;
-      font-weight: 600;
-      margin-bottom: 6px;
-      letter-spacing: 0.2px;
-    }
-
-    .project-page .pp-meta {
-      font-size: 0.85rem;
-      color: #5b6f80;
-      margin-bottom: 1.2rem;
-      border-bottom: 1px solid #e2eaf2;
-      padding-bottom: 0.8rem;
-    }
-
-    .project-page .pp-summary {
-      font-size: 0.98rem;
-      line-height: 1.65;
-      color: #1e3343;
-      margin-bottom: 1.2rem;
-    }
-
-    .project-page h3 {
-      font-size: 0.85rem;
+    .rp-header h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+      color: #1a1a1a;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #1f6e8c;
-      margin-top: 1.4rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid #dae6f0;
-      padding-bottom: 0.3rem;
     }
 
-    .project-page ul {
-      padding-left: 1.4rem;
-      margin-bottom: 0.2rem;
+    .rp-header .rp-role {
+      font-family: Arial, sans-serif;
+      color: #00adb5;
+      font-weight: bold;
+      margin-top: 4px;
+      font-size: 0.95rem;
     }
 
-    .project-page ul li {
-      list-style: disc;
-      font-size: 0.93rem;
-      line-height: 1.6;
-      padding: 0.2rem 0;
-      color: #1f3446;
+    .rp-header .rp-contact {
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      margin-top: 8px;
     }
 
-    .project-page .highlight-box {
-      background: #f0f6fe;
-      border-radius: 14px;
-      padding: 0.8rem 1.2rem;
-      margin-top: 0.8rem;
+    .rp-header .rp-contact a {
+      color: #007c87;
+      text-decoration: none;
+    }
+
+    .rp-section {
+      margin-bottom: 20px;
+    }
+
+    .rp-section h2 {
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #00adb5;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    .rp-summary {
       font-size: 0.92rem;
-      border-left: 4px solid #1f6e8c;
+      line-height: 1.55;
+      color: #333;
     }
 
-    /* ----- responsive ----- */
-    @media (max-width: 640px) {
-      .container {
-        padding: 1.2rem;
+    .rp-entry {
+      margin-bottom: 12px;
+    }
+
+    .rp-entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: Arial, sans-serif;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .rp-entry-head .rp-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+
+    .rp-entry-head .rp-date {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .rp-entry-sub {
+      display: flex;
+      justify-content: space-between;
+      font-style: italic;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .rp-entry ul {
+      margin-top: 6px;
+      padding-left: 18px;
+    }
+
+    .rp-entry ul li {
+      list-style: disc;
+      border-bottom: none;
+      padding: 2px 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #333;
+    }
+
+    .rp-skills-grid {
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.9;
+    }
+
+    .rp-skills-grid strong {
+      color: #1a1a1a;
+    }
+
+    .rp-cert-list {
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.8;
+    }
+
+    .rp-cert-list a {
+      color: #007c87;
+      text-decoration: none;
+    }
+
+    .rp-cert-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Print: strip everything but the page itself, at true A4 size */
+    @media print {
+      body * { visibility: hidden; }
+      .resume-page, .resume-page * { visibility: visible; }
+      .resume-page {
+        position: absolute;
+        top: 0; left: 0;
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 18mm 16mm;
+      }
+      .resume-dialog-topbar, .resume-dialog-close { display: none; }
+      @page { size: A4; margin: 0; }
+    }
+
+    /* ========== Responsive ========== */
+    /* Tablet & mobile: show hamburger, hide nav links by default */
+    @media (max-width: 1024px) {
+      .hamburger {
+        display: block;
       }
 
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .internship-entry {
-        flex-wrap: wrap;
-        padding: 1rem 1.2rem;
-      }
-
-      .internship-info strong {
-        font-size: 1.1rem;
-      }
-
-      .internship-explore-btn {
+      .nav-links {
+        display: none;
+        flex-direction: column;
         width: 100%;
-        justify-content: center;
-        padding: 0.7rem;
+        gap: 0.8rem;
+        padding: 1rem 0 0.5rem 0;
+        background: #1c1c1c;
+        border-radius: 0 0 8px 8px;
       }
 
-      .project-row {
-        flex-wrap: wrap;
-        padding: 1rem 1.2rem;
+      .nav-links.open {
+        display: flex;
       }
 
-      .project-info strong {
+      .nav-links a {
+        padding: 8px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      /* adjust profile image size for tablet */
+      .profile-img {
+        width: 130px;
+        height: 160px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .profile-img {
+        width: 120px;
+        height: 150px;
+        margin: 20px auto;
+      }
+
+      section {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
         font-size: 1rem;
       }
 
-      .project-explore-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 0.7rem;
+      .contact-links a {
+        display: block;
+        margin: 10px 0;
       }
 
-      .project-page {
-        padding: 1.4rem 1.2rem;
+      .resume-page {
+        padding: 34px 24px;
       }
 
-      .project-page h2 {
-        font-size: 1.4rem;
+      .rp-header h1 {
+        font-size: 1.5rem;
       }
     }
 
-    @media (max-width: 400px) {
-      .summary-card {
-        padding: 1rem;
+    @media (max-width: 480px) {
+      .profile-img {
+        width: 100px;
+        height: 120px;
       }
-      .tech-tags span {
-        font-size: 0.7rem;
+
+      .hero h1 {
+        font-size: 1.6rem;
       }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+    }
+
+    /* small extra: when nav is open on mobile, keep spacing */
+    .nav-links.open {
+      display: flex;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-
-  <h1>
-    <span>📘 Internship summary</span>
-    <small>Full Stack Web Development</small>
-    <span class="badge">Aug–Oct 2023</span>
-  </h1>
-
-  <!-- ===== INTERNSHIP ENTRY with EXPLORE BUTTON on RHS ===== -->
-  <div class="internship-entry">
-    <div class="internship-info">
-      <strong>🏢 Take It Smart Pvt. Ltd.</strong>
-      <div class="meta">
-        <span><i class="far fa-calendar-alt"></i> Aug 2023 – Oct 2023</span>
-        <span><i class="fas fa-map-marker-alt"></i> Bengaluru, India</span>
-        <span><i class="fas fa-briefcase"></i> Full Stack Developer Intern</span>
-      </div>
+  <!-- ===== Navigation with Hamburger ===== -->
+  <nav>
+    <!-- left side can be empty or brand; we put hamburger on the right -->
+    <!-- <div style="font-weight: bold; color: #00adb5;">BKS</div> -->
+    <div class="hamburger" id="hamburgerIcon" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
     </div>
-    <button class="internship-explore-btn" data-project="takeitsmart">
-      <i class="fas fa-arrow-right"></i> Explore
-    </button>
-  </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Internship summary card (what we learned & made) -->
-  <div class="summary-card">
-    <h3><i class="fas fa-graduation-cap" style="color:#1f6e8c;"></i> What we learned & built</h3>
-    <p>
-      <strong>Grocery Shop Website</strong> — a full‑stack e‑commerce platform with
-      user authentication, product catalog, shopping cart, order tracking, and
-      admin panel. Built with <strong>HTML, CSS, JavaScript</strong> (frontend) and
-      <strong>Django</strong> (backend) following MVC pattern.
-    </p>
-    <p>
-      <i class="fas fa-code" style="color:#1f6e8c; width:1.4rem;"></i>
-      <strong>Key learnings:</strong> Django models/views/templates, RESTful API
-      design, PostgreSQL integration, secure payment gateway, session management,
-      and responsive UI/UX.
-    </p>
-    <div class="tech-tags">
-      <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-      <span>Django</span><span>Python</span><span>PostgreSQL</span>
-      <span>REST APIs</span><span>JWT</span><span>Bootstrap</span>
+  <div class="profile-img"></div>
+
+  <section id="home" class="hero">
+    <h1>Hello, I'm Balaji Koushik S</h1>
+    <p>Full Stack Web Developer | Electronics & Communication Engineer</p>
+    <p>+91 6361656372 | balajikoushik18@gmail.com</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate web developer with hands-on experience in building dynamic web applications using modern frameworks and technologies.</p>
+    <h3>Education</h3>
+    <p><strong>Vemana Institute of Technology, Bengaluru</strong><br />B.E. in Electronics and Communication (Dec. 2020 – May 2024)</p>
+    <p><strong>Sahyadri PU College, Kolar</strong><br />Pre-University (May 2018 – July 2020)</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>AI-based Smart Hydroponics System</strong><br />Spigot API, Java, Maven, TravisCI, Git</li>
+      <li><strong>Waste Management System using IoT</strong><br />Python, Flask, React, PostgreSQL, Docker</li>
+    </ul>
+  </section>
+
+  <section id="resume"> 
+    <h2>Resume</h2>
+
+    <div class="resume-actions">
+      <button type="button" class="resume-btn view" id="viewResumeBtn">
+        <i class="fas fa-eye"></i> View Resume
+      </button>
+      <a href="assets/BalajiKoushik_Resume.pdf" download="BalajiKoushik_Resume.pdf" class="resume-btn download">
+        📄 Download Resume
+      </a>
     </div>
 
-    <a href="https://github.com/balajikoushik2003/bksgrocery.com/settings/pages" target="_blank" class="git-link">
-      <i class="fab fa-github"></i> View on GitHub &nbsp;→
-    </a>
-  </div>
+    <div class="resume-section">
+      <h3>Experience</h3>
+      <p><strong>Web Programmer I</strong> — Quess Corp Ltd. (assigned to Resideo) (May 2025 – Present)</p>
+      <p><strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb 2025)</p>
+      <p><strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)</p>
+      <h3>Achievements</h3>
+      <p>ICWITE 2021 conference presentation</p>
+      <h3>Certifications</h3>
+      <p>
+        <a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)<br/>
+        <a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">Web Development Bootcamp</a> — Udemy (2022)<br/>
+        <a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Course</a> — Quntnex (2024)<br/>
+        <a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
+      </p>
+      <h3>Skills</h3>
+      <p>Java, Python, C/C++, SQL, JavaScript, React, Django, Angular</p>
+    </div>
+  </section>
 
-  <!-- Project rows (with Explore button RHS) -->
-  <div style="margin-top: 2rem;">
-    <div class="project-row">
-      <div class="project-info">
-        <strong>🍎 Grocery Shop Website</strong>
-        <div class="meta">
-          <span><i class="fas fa-code"></i> Django + PostgreSQL</span>
-          <span><i class="fas fa-users"></i> Auth &amp; cart</span>
-          <span><i class="fas fa-credit-card"></i> Payment gateway</span>
-        </div>
-      </div>
-      <button class="project-explore-btn" data-project="grocery">
-        <i class="fas fa-arrow-right"></i> Explore
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Connect with me on:</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/balajikoushik2003/" target="_blank">💼 LinkedIn</a>
+      <a href="https://wa.me/916361656372" target="_blank">💬 WhatsApp</a>
+      <a href="https://github.com/balajikoushik2003" target="_blank">🐙 GitHub</a>
+      <a href="https://www.instagram.com/balajikoushiks/" target="_blank">📸 Instagram</a>
+    </div>
+  </section> 
+
+  <footer>
+    <div class="footer-logo"></div>
+    Designed and Developed by Balaji Koushik S
+  </footer>
+
+  <!-- ===== Resume Dialog (A4 presentation) ===== -->
+  <div class="resume-dialog-overlay" id="resumeDialogOverlay" role="dialog" aria-modal="true" aria-label="Resume preview">
+    <div class="resume-dialog-topbar">
+      <span>Resume Preview</span>
+      <button type="button" class="resume-dialog-close" id="resumeDialogClose" aria-label="Close resume preview">
+        <i class="fas fa-times"></i>
       </button>
     </div>
 
-    <!-- additional project (internship report also mentions "Web Based College Internship System" but main project is grocery) -->
-    <div class="project-row">
-      <div class="project-info">
-        <strong>🧑‍🎓 College Internship System (concept)</strong>
-        <div class="meta">
-          <span><i class="fas fa-comment"></i> Faculty-student portal</span>
-          <span><i class="fas fa-tasks"></i> Progress tracking</span>
+    <div class="resume-page">
+      <div class="rp-header">
+        <h1>Balaji Koushik S</h1>
+        <div class="rp-role">Full Stack Web Developer</div>
+        <div class="rp-contact">
+          +91 6361656372 &nbsp;|&nbsp;
+          <a href="mailto:balajikoushik18@gmail.com">balajikoushik18@gmail.com</a> &nbsp;|&nbsp;
+          <!-- <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp; -->
+          <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp;
+          <a href="https://github.com/balajikoushik2003" target="_blank">github.com/balajikoushik2003</a>
+          
         </div>
       </div>
-      <button class="project-explore-btn" data-project="college">
-        <i class="fas fa-arrow-right"></i> Explore
-      </button>
+
+      <div class="rp-section">
+        <h2>Summary</h2>
+        <p class="rp-summary">
+          Full Stack Web Developer with 2+ years of experience building performant, accessible web applications
+          with React.js, Next.js, Node.js, and Shopify Liquid. Focused on WCAG 2.1 AA accessibility engineering,
+          RESTful API design, and Microsoft Azure cloud integration. Track record of shipping measurable
+          performance gains and clean, maintainable code within Agile teams.
+        </p>
+      </div>
+
+      <div class="rp-section">
+        <h2>Experience</h2>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Web Programmer I</span>
+            <span class="rp-date">May 2025 – Present</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Quess Corp Limited (assigned to Resideo Smart Home Technologies)</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Engineer WCAG 2.1 AA-compliant UI components for HoneywellHome and First Alert Shopify storefronts with React.js, Next.js, and Liquid, resolving keyboard-navigation, focus-order, and screen-reader defects across mega menus, product galleries, and search.</li>
+            <li>Build and optimize front-end features with React.js, Next.js, and Node.js, cutting page load times by up to 30%.</li>
+            <li>Integrate Microsoft Azure services for authentication, storage, and CI/CD, streamlining release workflows.</li>
+            <li>Manage enterprise content through Sitecore CMS and XML, improving content-delivery accuracy and turnaround.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Full Stack Developer</span>
+            <span class="rp-date">Aug 2024 – Feb 2025</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Futureol Infotech Pvt. Ltd.</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Delivered full-stack applications with Angular, Node.js, Express, and MySQL/PostgreSQL.</li>
+            <li>Designed and secured REST APIs using JWT and OAuth 2.0 authentication.</li>
+            <li>Tuned backend logic and database queries, improving average response time by 25%.</li>
+            <li>Partnered with cross-functional Agile teams, using Git and JIRA to plan, track, and ship releases.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Full Stack Developer Intern</span>
+            <span class="rp-date">Aug 2023 – Oct 2023</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Take It Smart Pvt. Ltd.</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <ul>
+            <li>Built an e-commerce grocery platform covering authentication, product management, and order workflows.</li>
+            <li>Integrated third-party REST APIs and resolved defects through systematic debugging and testing, improving platform stability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Projects</h2>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">AI-Based Smart Hydroponics System — Python, Machine Learning, IoT</span>
+            <span class="rp-date">2024</span>
+          </div>
+          <ul>
+            <li>Designed an IoT-based hydroponics platform applying KNN, ANN, and Lasso regression models for predictive crop optimization.</li>
+            <li>Achieved a plant growth rate of 0.9 cm/day through real-time sensor-data analysis and model tuning; presented findings at the ICWITE conference.</li>
+          </ul>
+        </div>
+
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">IoT-Based Waste Management System — Python, Flask, React, PostgreSQL</span>
+            <span class="rp-date">2023</span>
+          </div>
+          <ul>
+            <li>Built a smart waste-segregation system that classifies waste automatically using sensor input.</li>
+            <li>Developed a real-time monitoring dashboard that improved operational visibility and response time.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Technical Skills</h2>
+        <div class="rp-skills-grid">
+          <strong>Languages:</strong> Java, Python, JavaScript, SQL<br/>
+          <strong>Frontend:</strong> React.js, Next.js, Angular, Shopify/Liquid, HTML5, CSS3<br/>
+          <strong>Backend:</strong> Node.js, Express.js, Django, Flask<br/>
+          <strong>Databases:</strong> MySQL, PostgreSQL<br/>
+          <strong>Cloud/DevOps:</strong> Microsoft Azure, Docker, Jenkins, Git, GitHub<br/>
+          <strong>Other:</strong> RESTful API Design, WCAG 2.1 AA Accessibility, Sitecore CMS, JIRA, Agile/Scrum
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Certifications</h2>
+        <div class="rp-cert-list">
+          <a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)<br/>
+          <a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">Web Development Bootcamp</a> — Udemy (2022)<br/>
+          <a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Course</a> — Quntnex (2024)<br/>
+          <a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Education</h2>
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">Vemana Institute of Technology</span>
+            <span class="rp-date">2020 – 2024</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>B.E. Electronics and Communication</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- small footer note -->
-  <div style="margin-top: 2.2rem; font-size:0.85rem; color:#4d6677; border-top:1px solid #e2eaf2; padding-top:1.2rem; text-align:center;">
-    <i class="fas fa-laptop-code"></i> Internship report · Full Stack Web Development · 2023
-  </div>
+  <!-- ===== Hamburger toggle script ===== -->
+  <script>
+    (function() {
+      const hamburger = document.getElementById('hamburgerIcon');
+      const navLinks = document.getElementById('navLinks');
 
-</div>
-
-<!-- ===== DIALOG: Take It Smart Internship ===== -->
-<div class="project-dialog-overlay" id="projectDialog-takeitsmart" role="dialog" aria-modal="true">
-  <div class="project-dialog-topbar">
-    <span><i class="fas fa-building"></i> Take It Smart Pvt. Ltd.</span>
-    <button class="project-dialog-close" aria-label="Close"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="project-page">
-    <h2>🏢 Take It Smart Pvt. Ltd. – Full Stack Developer Intern</h2>
-    <div class="pp-tech">Django · Python · PostgreSQL · HTML · CSS · JavaScript</div>
-    <div class="pp-meta">Aug 2023 – Oct 2023 · Bengaluru, India</div>
-    <p class="pp-summary">
-      Worked as a Full Stack Developer Intern at Take It Smart Pvt. Ltd., where I built
-      a complete e‑commerce grocery platform from scratch. This hands-on experience
-      gave me real-world exposure to agile development, version control, and
-      production-ready deployment.
-    </p>
-    <h3>💼 Key Responsibilities</h3>
-    <ul>
-      <li><strong>Full Stack Development:</strong> Built the entire Grocery Shop Website using Django (backend) and HTML/CSS/JavaScript (frontend).</li>
-      <li><strong>Database Design:</strong> Designed PostgreSQL schemas for products, users, orders, and cart management.</li>
-      <li><strong>Authentication &amp; Security:</strong> Implemented user registration, login, password hashing, and session management.</li>
-      <li><strong>Payment Integration:</strong> Integrated secure payment gateway for checkout transactions.</li>
-      <li><strong>Admin Panel:</strong> Developed an admin dashboard for managing inventory, orders, and user data.</li>
-      <li><strong>Testing &amp; Debugging:</strong> Performed unit testing, integration testing, and user acceptance testing to ensure platform stability.</li>
-    </ul>
-    <h3>🧠 What I Learned</h3>
-    <ul>
-      <li>Building production-ready RESTful APIs with Django REST Framework.</li>
-      <li>Database optimization and query tuning in PostgreSQL.</li>
-      <li>Frontend-backend integration with AJAX and fetch API.</li>
-      <li>Responsive UI design principles using CSS Flexbox and Grid.</li>
-      <li>Security best practices: CSRF protection, XSS prevention, HTTPS, environment variables.</li>
-      <li>Agile workflow with Git version control and JIRA tracking.</li>
-    </ul>
-    <h3>🏆 Outcomes</h3>
-    <ul>
-      <li>Successfully delivered a fully functional e-commerce platform within the internship duration.</li>
-      <li>Received positive feedback for clean code, responsive design, and robust backend architecture.</li>
-      <li>Gained practical experience in full-stack development lifecycle from planning to deployment.</li>
-    </ul>
-    <div class="highlight-box">
-      <i class="fas fa-link" style="color:#1f6e8c; margin-right:8px;"></i>
-      <a href="https://github.com/balajikoushik2003/bksgrocery.com/settings/pages" target="_blank" style="font-weight:600; color:#1f6e8c; text-decoration:none; border-bottom:1px solid #1f6e8c;">
-        View Project on GitHub
-      </a>
-      &nbsp;·&nbsp; Full Stack Grocery Platform
-    </div>
-  </div>
-</div>
-
-<!-- ===== DIALOG: Grocery project ===== -->
-<div class="project-dialog-overlay" id="projectDialog-grocery" role="dialog" aria-modal="true">
-  <div class="project-dialog-topbar">
-    <span><i class="fas fa-store"></i> Grocery Shop Website</span>
-    <button class="project-dialog-close" aria-label="Close"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="project-page">
-    <h2>🍎 Grocery Shop – Full Stack Web Development</h2>
-    <div class="pp-tech">Django · Python · PostgreSQL · HTML · CSS · JavaScript</div>
-    <div class="pp-meta">Internship Project · Take It Smart Pvt. Ltd. · Aug–Oct 2023</div>
-    <p class="pp-summary">
-      A complete e‑commerce platform for grocery shopping. Users can register, log in,
-      browse products by category, search, add items to cart, and checkout with secure
-      payment. The admin panel manages inventory, orders, and users. Built with
-      Django's MTV architecture.
-    </p>
-    <h3>📦 Features</h3>
-    <ul>
-      <li><strong>User authentication:</strong> registration, login, password hashing, session management.</li>
-      <li><strong>Product catalog:</strong> dynamic listing with search, filters, and pagination.</li>
-      <li><strong>Shopping cart:</strong> add/remove items, quantity updates, real‑time total.</li>
-      <li><strong>Checkout &amp; payment:</strong> integrated with secure gateway (test mode).</li>
-      <li><strong>Order tracking &amp; history:</strong> users view order status and past orders.</li>
-      <li><strong>Admin dashboard:</strong> manage products, categories, orders, and user data.</li>
-    </ul>
-    <h3>🧠 What we learned</h3>
-    <ul>
-      <li>Building RESTful APIs with Django REST Framework.</li>
-      <li>PostgreSQL database modeling and migrations.</li>
-      <li>Frontend–backend integration via AJAX and fetch.</li>
-      <li>Responsive design with CSS Grid / Flexbox.</li>
-      <li>Security: CSRF, XSS protection, HTTPS, and environment variables.</li>
-    </ul>
-    <div class="highlight-box">
-      <i class="fas fa-link" style="color:#1f6e8c; margin-right:8px;"></i>
-      <a href="https://github.com/balajikoushik2003/bksgrocery.com/settings/pages" target="_blank" style="font-weight:600; color:#1f6e8c; text-decoration:none; border-bottom:1px solid #1f6e8c;">
-        View on GitHub
-      </a>
-      &nbsp;·&nbsp; Live demo available (check repo)
-    </div>
-  </div>
-</div>
-
-<!-- ===== DIALOG: College Internship System ===== -->
-<div class="project-dialog-overlay" id="projectDialog-college" role="dialog" aria-modal="true">
-  <div class="project-dialog-topbar">
-    <span><i class="fas fa-university"></i> College Internship System</span>
-    <button class="project-dialog-close" aria-label="Close"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="project-page">
-    <h2>🧑‍🎓 College Internship Management System</h2>
-    <div class="pp-tech">Django · Python · SQLite · Bootstrap</div>
-    <div class="pp-meta">Concept / Academic reference · 2023</div>
-    <p class="pp-summary">
-      A web‑based toolkit for managing internship programmes in an educational institution.
-      Designed to facilitate communication between faculty, students, and coordinators.
-      Students can view requirements, track progress, and interact with faculty.
-    </p>
-    <h3>📋 Core modules</h3>
-    <ul>
-      <li><strong>Student portal:</strong> view internships, submit applications, track status.</li>
-      <li><strong>Faculty dashboard:</strong> approve/reject applications, provide feedback.</li>
-      <li><strong>Coordinator panel:</strong> manage internship listings, assign mentors, generate reports.</li>
-      <li><strong>Real‑time chat:</strong> (conceptual) messaging between students and faculty.</li>
-    </ul>
-    <h3>🔧 Tech stack</h3>
-    <ul>
-      <li>Django models, views, templates, and URL routing.</li>
-      <li>Authentication with role‑based permissions (Student, Faculty, Coordinator).</li>
-      <li>Bootstrap 5 for responsive UI.</li>
-      <li>SQLite for rapid prototyping.</li>
-    </ul>
-    <div class="highlight-box">
-      <i class="fas fa-lightbulb" style="color:#1f6e8c; margin-right:8px;"></i>
-      This project was part of the internship report framework, demonstrating
-      full‑stack development principles.
-    </div>
-  </div>
-</div>
-
-<!-- ===== JavaScript: dialog controls + explore buttons ===== -->
-<script>
-  (function() {
-    // ----- open/close project dialogs -----
-    const exploreBtns = document.querySelectorAll('.project-explore-btn, .internship-explore-btn');
-    const dialogs = {};
-
-    // gather all dialogs
-    document.querySelectorAll('.project-dialog-overlay').forEach(overlay => {
-      const id = overlay.id;
-      if (id && id.startsWith('projectDialog-')) {
-        const key = id.replace('projectDialog-', '');
-        dialogs[key] = overlay;
-      }
-    });
-
-    function openDialog(key) {
-      const overlay = dialogs[key];
-      if (!overlay) return;
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDialog(overlay) {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // attach click to each explore button
-    exploreBtns.forEach(btn => {
-      const key = btn.getAttribute('data-project');
-      if (!key) return;
-      btn.addEventListener('click', function(e) {
+      // toggle class 'open' on click
+      hamburger.addEventListener('click', function(e) {
         e.stopPropagation();
-        openDialog(key);
-      });
-    });
-
-    // close buttons (×) inside each dialog
-    document.querySelectorAll('.project-dialog-close').forEach(closeBtn => {
-      closeBtn.addEventListener('click', function() {
-        const overlay = this.closest('.project-dialog-overlay');
-        if (overlay) closeDialog(overlay);
-      });
-    });
-
-    // click on overlay background closes
-    document.querySelectorAll('.project-dialog-overlay').forEach(overlay => {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === this) {
-          closeDialog(this);
+        navLinks.classList.toggle('open');
+        // optionally change icon (bars -> times)
+        const icon = hamburger.querySelector('i');
+        if (navLinks.classList.contains('open')) {
+          icon.className = 'fas fa-times';
+        } else {
+          icon.className = 'fas fa-bars';
         }
       });
-    });
 
-    // ESC key closes any open dialog
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const openDialog = document.querySelector('.project-dialog-overlay.open');
-        if (openDialog) {
-          closeDialog(openDialog);
+      // close menu when a link is clicked (optional but good UX)
+      const links = navLinks.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('open');
+          const icon = hamburger.querySelector('i');
+          icon.className = 'fas fa-bars';
+        });
+      });
+
+      // close menu when clicking outside (optional)
+      document.addEventListener('click', function(event) {
+        const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
+        if (!isClickInside && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          const icon = hamburger.querySelector('i');
+          icon.className = 'fas fa-bars';
         }
+      });
+    })();
+
+    // ===== Resume dialog (A4 preview) toggle =====
+    (function() {
+      const viewBtn = document.getElementById('viewResumeBtn');
+      const overlay = document.getElementById('resumeDialogOverlay');
+      const closeBtn = document.getElementById('resumeDialogClose');
+
+      function openDialog() {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
       }
-    });
-  })();
-</script>
 
+      function closeDialog() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      viewBtn.addEventListener('click', openDialog);
+      closeBtn.addEventListener('click', closeDialog);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeDialog();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
+      });
+    })();
+  </script>
 </body>
 </html>
