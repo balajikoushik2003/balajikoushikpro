@@ -45,9 +45,6 @@
       animation: slideDown 1s ease-out;
     }
 
-    /* Desktop/laptop only — center the nav links, mobile layout is untouched
-       since this media query only applies above the 1024px breakpoint where
-       the hamburger menu takes over. */
     @media (min-width: 1025px) {
       nav .nav-links {
         position: absolute;
@@ -81,7 +78,6 @@
       transform: scale(1.05);
     }
 
-    /* Hamburger icon (hidden on desktop) */
     .hamburger {
       display: none;
       font-size: 1.8rem;
@@ -641,7 +637,6 @@
     }
 
     /* ========== Responsive ========== */
-    /* Tablet & mobile: show hamburger, hide nav links by default */
     @media (max-width: 1024px) {
       .hamburger {
         display: block;
@@ -672,7 +667,6 @@
         border-bottom: none;
       }
 
-      /* adjust profile image size for tablet */
       .profile-img {
         width: 130px;
         height: 160px;
@@ -732,7 +726,6 @@
       }
     }
 
-    /* small extra: when nav is open on mobile, keep spacing */
     .nav-links.open {
       display: flex;
     }
@@ -909,74 +902,102 @@
     <div class="resume-page">
       <div class="rp-header">
         <h1>Balaji Koushik S</h1>
-        <div class="rp-role">Full Stack Web Developer</div>
+        <div class="rp-role">Full Stack Developer | React.js | Next.js | Node.js | Angular</div>
         <div class="rp-contact">
           +91 6361656372 &nbsp;|&nbsp;
           <a href="mailto:balajikoushik18@gmail.com">balajikoushik18@gmail.com</a> &nbsp;|&nbsp;
-          <a href="https://www.linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik-7b0a52301</a> &nbsp;|&nbsp;
-          <a href="https://github.com/balajikoushik2003" target="_blank">github.com/balajikoushik2003</a>
+          <a href="https://linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik</a> &nbsp;|&nbsp;
+          <a href="https://github.com/balajikoushik2003" target="_blank">github.com/balajikoushik2003</a> &nbsp;|&nbsp;
+          <a href="https://balajikoushik2003.github.io/balajikoushikpro/" target="_blank">Portfolio</a>
         </div>
       </div>
 
       <div class="rp-section">
-        <h2>Summary</h2>
+        <h2>Professional Summary</h2>
         <p class="rp-summary">
-          Full Stack Web Developer with 2+ years of experience building performant, accessible web applications
-          with React.js, Next.js, Node.js, and Shopify Liquid. Focused on WCAG 2.1 AA accessibility engineering,
-          RESTful API design, and Microsoft Azure cloud integration. Track record of shipping measurable
-          performance gains and clean, maintainable code within Agile teams.
+          <strong>Full Stack Developer</strong> with 2.5+ years of experience in designing and building scalable web applications using React.js, Next.js, Node.js, Angular, and Shopify. Specialized in <strong>e-commerce solutions</strong>, <strong>RESTful API development</strong>, and <strong>WCAG 2.1 AA accessibility</strong> compliance. Proven expertise in <strong>performance optimization</strong>, reducing page load times by 30% and improving backend response times by 25%. Strong foundation in <strong>Agile/Scrum methodology</strong>, <strong>cloud deployment</strong> (Azure), and <strong>CI/CD pipelines</strong>. Actively seeking <strong>Full Stack Developer</strong> roles in product-based companies with focus on modern JavaScript technologies.
         </p>
       </div>
 
       <div class="rp-section">
-        <h2>Experience</h2>
+        <h2>Core Competencies</h2>
+        <div class="rp-skills-grid">
+          <strong>Frontend:</strong> React.js, Next.js, Angular, Shopify Liquid, TypeScript, HTML5, CSS3, Responsive UI<br/>
+          <strong>Backend:</strong> Node.js, Express.js, Java, Spring Boot, REST APIs, Microservices<br/>
+          <strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Database Optimization, Query Tuning<br/>
+          <strong>DevOps &amp; Cloud:</strong> Microsoft Azure, Docker, Jenkins, Git, GitHub, CI/CD Pipelines<br/>
+          <strong>Accessibility:</strong> WCAG 2.1 AA, ARIA, Keyboard Navigation, NVDA, Screen Readers<br/>
+          <strong>Methodologies:</strong> Agile/Scrum, Test-Driven Development, OOP, Design Patterns
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Technical Skills</h2>
+        <div class="rp-skills-grid">
+          <strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, Java, SQL<br/>
+          <strong>Frameworks &amp; Libraries:</strong> React.js, Next.js, Angular, Node.js, Express.js, Spring Boot, Django<br/>
+          <strong>Database &amp; Tools:</strong> MySQL, PostgreSQL, MongoDB, Docker, Jenkins, Azure DevOps<br/>
+          <strong>Version Control:</strong> Git, GitHub, Git Flow, CI/CD<br/>
+          <strong>Testing &amp; Debugging:</strong> Postman, Jest, Mocha, Chrome DevTools<br/>
+          <strong>Soft Skills:</strong> Cross-functional Collaboration, Agile/Scrum, Problem-Solving, Communication
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Professional Experience</h2>
 
         <div class="rp-entry">
           <div class="rp-entry-head">
             <span class="rp-title">Web Programmer I</span>
-            <span class="rp-date">May 2025 – Present</span>
+            <span class="rp-date">May 2025 -- Jul 2026</span>
           </div>
           <div class="rp-entry-sub">
-            <span>Quess Corp Limited (assigned to Resideo Smart Home Technologies)</span>
+            <span>Quess Corp Limited (Resideo Smart Home Technologies)</span>
             <span>Bengaluru, India</span>
           </div>
           <ul>
-            <li>Engineer WCAG 2.1 AA-compliant UI components for HoneywellHome and First Alert Shopify storefronts with React.js, Next.js, and Liquid, resolving keyboard-navigation, focus-order, and screen-reader defects across mega menus, product galleries, and search.</li>
-            <li>Build and optimize front-end features with React.js, Next.js, and Node.js, cutting page load times by up to 30%.</li>
-            <li>Integrate Microsoft Azure services for authentication, storage, and CI/CD, streamlining release workflows.</li>
-            <li>Manage enterprise content through Sitecore CMS and XML, improving content-delivery accuracy and turnaround.</li>
+            <li>Architected and deployed WCAG 2.1 AA-compliant UI components using React.js, Next.js, and Shopify Liquid for HoneywellHome and First Alert storefronts</li>
+            <li>Resolved 50+ accessibility issues including keyboard navigation, focus management, and ARIA implementation, improving user experience for customers with disabilities</li>
+            <li>Engineered frontend features using React.js and Next.js, implementing lazy loading and code splitting to achieve 30% faster page load times</li>
+            <li>Integrated Microsoft Azure AD B2C for authentication, Azure Storage, and established CI/CD pipelines reducing deployment time by 40%</li>
+            <li>Collaborated with UX designers and product managers in Agile sprints, delivering features ahead of schedule</li>
+            <li>Managed content delivery through Sitecore CMS, improving content accuracy by 25% through XML optimization</li>
           </ul>
         </div>
 
         <div class="rp-entry">
           <div class="rp-entry-head">
             <span class="rp-title">Full Stack Developer</span>
-            <span class="rp-date">Aug 2024 – Feb 2025</span>
+            <span class="rp-date">Aug 2024 -- Feb 2025</span>
           </div>
           <div class="rp-entry-sub">
             <span>Futureol Infotech Pvt. Ltd.</span>
             <span>Bengaluru, India</span>
           </div>
           <ul>
-            <li>Delivered full-stack applications with Angular, Node.js, Express, and MySQL/PostgreSQL.</li>
-            <li>Designed and secured REST APIs using JWT and OAuth 2.0 authentication.</li>
-            <li>Tuned backend logic and database queries, improving average response time by 25%.</li>
-            <li>Partnered with cross-functional Agile teams, using Git and JIRA to plan, track, and ship releases.</li>
+            <li>Developed full-stack enterprise applications using Angular, Node.js, Express, MySQL, and PostgreSQL</li>
+            <li>Designed and implemented secure RESTful APIs with JWT and OAuth 2.0 authentication, handling 10K+ daily requests</li>
+            <li>Optimized database queries and backend logic, reducing average API response time from 400ms to 300ms (25% improvement)</li>
+            <li>Led code reviews and mentored 2 junior developers, maintaining code quality standards</li>
+            <li>Implemented unit and integration testing using Jest, achieving 85% test coverage</li>
+            <li>Participated in Agile ceremonies (daily standups, sprint planning, retrospectives) using JIRA</li>
           </ul>
         </div>
 
         <div class="rp-entry">
           <div class="rp-entry-head">
             <span class="rp-title">Full Stack Developer Intern</span>
-            <span class="rp-date">Aug 2023 – Oct 2023</span>
+            <span class="rp-date">Aug 2023 -- Oct 2023</span>
           </div>
           <div class="rp-entry-sub">
             <span>Take It Smart Pvt. Ltd.</span>
             <span>Bengaluru, India</span>
           </div>
           <ul>
-            <li>Built an e-commerce grocery platform covering authentication, product management, and order workflows.</li>
-            <li>Integrated third-party REST APIs and resolved defects through systematic debugging and testing, improving platform stability.</li>
+            <li>Built a full-stack e-commerce platform with user authentication, product catalog, and order management system</li>
+            <li>Integrated third-party payment gateway and REST APIs for seamless transaction processing</li>
+            <li>Reduced bugs by 40% through systematic debugging and comprehensive testing</li>
+            <li>Gained hands-on experience with Agile methodology and Git version control</li>
           </ul>
         </div>
       </div>
@@ -986,36 +1007,47 @@
 
         <div class="rp-entry">
           <div class="rp-entry-head">
-            <span class="rp-title">AI-Based Smart Hydroponics System — ESP8266, Arduino, Python, Machine Learning</span>
-            <span class="rp-date">2023–24</span>
+            <span class="rp-title">Ezy Office - Enterprise Management System</span>
+            <span class="rp-date">Sep 2024 -- Feb 2025</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Angular, Node.js, Express, MySQL</span>
           </div>
           <ul>
-            <li>Designed a self-controlled, IoT-based hydroponics platform applying KNN, ANN, and Lasso regression models for predictive crop optimization, reaching 99.98% test accuracy.</li>
-            <li>Built the sensor-to-cloud pipeline (ESP8266 → Java server → ML model → mobile status app) and presented findings at the IEEE ICITEICS 2024 conference.</li>
+            <li>Built a comprehensive office management platform with 6+ microservices handling employee, project, and inventory modules</li>
+            <li>Designed RESTful APIs with JWT authentication, serving 500+ daily active users</li>
+            <li>Implemented real-time notifications using WebSockets and optimized database with indexing</li>
           </ul>
         </div>
 
         <div class="rp-entry">
           <div class="rp-entry-head">
-            <span class="rp-title">Waste Management System using IoT — Raspberry Pi 3, Python</span>
-            <span class="rp-date">2022–23</span>
+            <span class="rp-title">Balaji Grocery Shop - E-commerce Platform</span>
+            <span class="rp-date">Aug 2023 -- Oct 2023</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>React.js, Node.js, MongoDB</span>
           </div>
           <ul>
-            <li>Built a smart waste-segregation system that classifies waste into metal, dry, and wet streams automatically using multi-sensor input.</li>
-            <li>Added bin-level monitoring with cloud + SMS alerts to improve collection response time.</li>
+            <li>Launched a full-featured online grocery platform with 200+ product catalog and real-time inventory</li>
+            <li>Implemented secure payment integration (Razorpay) and order tracking system</li>
+            <li>Achieved 95% Google Lighthouse score through responsive design and performance optimization</li>
           </ul>
         </div>
-      </div>
 
-      <div class="rp-section">
-        <h2>Technical Skills</h2>
-        <div class="rp-skills-grid">
-          <strong>Languages:</strong> Java, Python, JavaScript, SQL<br/>
-          <strong>Frontend:</strong> React.js, Next.js, Angular, Shopify/Liquid, HTML5, CSS3<br/>
-          <strong>Backend:</strong> Node.js, Express.js, Django, Flask<br/>
-          <strong>Databases:</strong> MySQL, PostgreSQL<br/>
-          <strong>Cloud/DevOps:</strong> Microsoft Azure, Docker, Jenkins, Git, GitHub<br/>
-          <strong>Other:</strong> RESTful API Design, WCAG 2.1 AA Accessibility, Sitecore CMS, JIRA, Agile/Scrum
+        <div class="rp-entry">
+          <div class="rp-entry-head">
+            <span class="rp-title">AI-Based Smart Hydroponics System</span>
+            <span class="rp-date">2024</span>
+          </div>
+          <div class="rp-entry-sub">
+            <span>Python, Machine Learning, IoT</span>
+          </div>
+          <ul>
+            <li>Developed ML models (KNN, ANN, Lasso) achieving 0.9 cm/day plant growth optimization</li>
+            <li>Published research at ICWITE conference demonstrating predictive crop management</li>
+            <li>Collaborated with IoT team to integrate sensor data for real-time monitoring</li>
+          </ul>
         </div>
       </div>
 
@@ -1023,8 +1055,8 @@
         <h2>Certifications</h2>
         <div class="rp-cert-list">
           <a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)<br/>
-          <a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">Web Development Bootcamp</a> — Udemy (2022)<br/>
-          <a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Course</a> — Quntnex (2024)<br/>
+          <a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">The Complete Web Development Bootcamp</a> — Udemy (2022)<br/>
+          <a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Development</a> — Quntnex (2024)<br/>
           <a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
         </div>
       </div>
@@ -1034,12 +1066,26 @@
         <div class="rp-entry">
           <div class="rp-entry-head">
             <span class="rp-title">Vemana Institute of Technology</span>
-            <span class="rp-date">2020 – 2024</span>
+            <span class="rp-date">2020 -- 2024</span>
           </div>
           <div class="rp-entry-sub">
-            <span>B.E. Electronics and Communication</span>
+            <span>Bachelor of Engineering (B.E.) in Electronics &amp; Communication</span>
             <span>Bengaluru, India</span>
           </div>
+          <div style="font-family: Arial, sans-serif; font-size: 0.82rem; color: #555; margin-top: 2px;">
+            Visveswaraiah Technological University (VTU) &nbsp;|&nbsp; CGPA: 7.8/10
+          </div>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <h2>Additional Information</h2>
+        <div class="rp-skills-grid">
+          <strong>Languages:</strong> English (Professional), Hindi, Kannada, Tamil<br/>
+          <strong>Availability:</strong> Immediate Joining (15 Days or less)<br/>
+          <strong>Location Preference:</strong> Bengaluru, India (Open to relocation)<br/>
+          <strong>Interests:</strong> Open Source Contributions, Tech Blogging, AI/ML Research<br/>
+          <strong>Portfolio:</strong> <a href="https://balajikoushik2003.github.io/balajikoushikpro/" target="_blank" style="color: #007c87; text-decoration: none;">balajikoushik2003.github.io/balajikoushikpro/</a>
         </div>
       </div>
     </div>
