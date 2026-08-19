@@ -1,1257 +1,1599 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Balaji Koushik S · Full Stack Developer</title>
-		<!-- Font Awesome for hamburger icon -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-			<style>
-    /* ========== Global Styles ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
-      background-image: url('images/bg.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      overflow-x: hidden;
-      animation: fadeInBody 1.5s ease-in;
-    }
-
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* ========== Navigation ========== */
-    nav {
-      background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
-      color: white;
-      padding: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      animation: slideDown 1s ease-out;
-    }
-
-    @media (min-width: 1025px) {
-      nav .nav-links {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-      list-style: none;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: color 0.3s ease, transform 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #001a59cc;
-      transform: scale(1.05);
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.8rem;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .hamburger:hover {
-      transform: scale(1.1);
-      color: #001a59cc;
-    }
-
-    /* ========== Profile Image ========== */
-    .profile-img {
-      display: block;
-      margin: 30px auto 20px auto;
-      width: 140px;
-      height: 170px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      background-size: cover;
-      background-position: center;
-      background-image: url('images/profile.png');
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      animation: zoomIn 1.2s ease-out;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* ========== Sections ========== */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #222;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-      color: #001a59cc;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      padding: 8px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .resume-section h3 {
-      margin-top: 20px;
-      color: #222;
-    }
-
-    .resume-section a {
-      color: #001a59cc;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .resume-section a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-links a {
-      display: inline-block;
-      margin-right: 20px;
-      color: #001a59cc;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .contact-links a:hover {
-      color: #007c87;
-      transform: scale(1.1);
-    }
-
-    footer {
-      text-align: center;
-      font-weight: bold;
-      color: white;
-      padding: 20px 0;
-      margin-top: 40px;
-      background: rgba(0, 0, 0, 0.8);
-      animation: fadeInFooter 2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo {
-      background-image: url('images/bksicon.png');
-      background-size: cover;
-      background-position: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-
-    @keyframes fadeInFooter {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ========== Resume action buttons ========== */
-    .resume-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .resume-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 0.95rem;
-      border: 2px solid #001a59cc;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: inherit;
-    }
-
-    .resume-btn.view {
-      background: #001a59cc;
-      color: #fff;
-    }
-
-    .resume-btn.view:hover {
-      background: #007c87;
-      border-color: #007c87;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.35);
-    }
-
-    .resume-btn.download {
-      background: #fff;
-      color: #001a59cc;
-    }
-
-    .resume-btn.download:hover {
-      background: #001a59cc;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.25);
-    }
-
-    /* ========== Resume Dialog (A4 preview) ========== */
-    .resume-dialog-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 15, 15, 0.72);
-      z-index: 1200;
-      padding: 30px 16px;
-      overflow-y: auto;
-      animation: overlayFade 0.25s ease;
-    }
-
-    .resume-dialog-overlay.open {
-      display: block;
-    }
-
-    @keyframes overlayFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .resume-dialog-topbar {
-      max-width: 794px;
-      margin: 0 auto 14px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #f2f2f2;
-    }
-
-    .resume-dialog-topbar span {
-      font-weight: bold;
-      letter-spacing: 0.03em;
-    }
-
-    .resume-dialog-close {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .resume-dialog-close:hover {
-      background: #001a59cc;
-      transform: rotate(90deg);
-    }
-
-    /* A4 page: 210mm x 297mm, scaled to px at 96dpi (~794 x 1123) */
-    .resume-page {
-      width: 794px;
-      max-width: 100%;
-      min-height: 1123px;
-      margin: 0 auto 30px auto;
-      background: #fff;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-      padding: 60px 64px;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      color: #222;
-      animation: pageRise 0.35s ease;
-    }
-
-    @keyframes pageRise {
-      from { opacity: 0; transform: translateY(24px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .rp-header {
-      text-align: center;
-      border-bottom: 2px solid #001a59cc;
-      padding-bottom: 16px;
-      margin-bottom: 22px;
-    }
-
-    .rp-header h1 {
-      font-size: 1.9rem;
-      letter-spacing: 0.04em;
-      color: #1a1a1a;
-      text-transform: uppercase;
-    }
-
-    .rp-header .rp-role {
-      font-family: Arial, sans-serif;
-      color: #001a59cc;
-      font-weight: bold;
-      margin-top: 4px;
-      font-size: 0.95rem;
-    }
-
-    .rp-header .rp-contact {
-      font-family: Arial, sans-serif;
-      font-size: 0.82rem;
-      color: #555;
-      margin-top: 8px;
-    }
-
-    .rp-header .rp-contact a {
-      color: #007c87;
-      text-decoration: none;
-    }
-
-    .rp-section {
-      margin-bottom: 20px;
-    }
-
-    .rp-section h2 {
-      font-family: Arial, sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #001a59cc;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-    }
-
-    .rp-summary {
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: #333;
-    }
-
-    .rp-entry {
-      margin-bottom: 12px;
-    }
-
-    .rp-entry-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-family: Arial, sans-serif;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .rp-entry-head .rp-title {
-      font-weight: bold;
-      font-size: 0.95rem;
-      color: #1a1a1a;
-    }
-
-    .rp-entry-head .rp-date {
-      font-size: 0.8rem;
-      color: #666;
-    }
-
-    .rp-entry-sub {
-      display: flex;
-      justify-content: space-between;
-      font-style: italic;
-      font-family: Arial, sans-serif;
-      font-size: 0.82rem;
-      color: #555;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .rp-entry ul {
-      margin-top: 6px;
-      padding-left: 18px;
-    }
-
-    .rp-entry ul li {
-      list-style: disc;
-      border-bottom: none;
-      padding: 2px 0;
-      font-size: 0.88rem;
-      line-height: 1.45;
-      color: #333;
-    }
-
-    .rp-skills-grid {
-      font-family: Arial, sans-serif;
-      font-size: 0.86rem;
-      line-height: 1.9;
-    }
-
-    .rp-skills-grid strong {
-      color: #1a1a1a;
-    }
-
-    .rp-cert-list {
-      font-family: Arial, sans-serif;
-      font-size: 0.86rem;
-      line-height: 1.8;
-    }
-
-    .rp-cert-list a {
-      color: #007c87;
-      text-decoration: none;
-    }
-
-    .rp-cert-list a:hover {
-      text-decoration: underline;
-    }
-
-    /* ========== Project cards ========== */
-    .project-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid #eee;
-      flex-wrap: wrap;
-    }
-
-    .project-item:last-child {
-      border-bottom: none;
-    }
-
-    .project-info strong {
-      display: block;
-      color: #222;
-      font-size: 1rem;
-    }
-
-    .project-info span {
-      color: #666;
-      font-size: 0.88rem;
-    }
-
-    .project-explore-btn {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 0.88rem;
-      border: 2px solid #001a59cc;
-      background: #fff;
-      color: #001a59cc;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: inherit;
-    }
-
-    .project-explore-btn:hover {
-      background: #001a59cc;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 173, 181, 0.3);
-    }
-
-    /* ========== Project summary dialog ========== */
-    .project-dialog-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 15, 15, 0.72);
-      z-index: 1200;
-      padding: 30px 16px;
-      overflow-y: auto;
-      animation: overlayFade 0.25s ease;
-    }
-
-    .project-dialog-overlay.open {
-      display: block;
-    }
-
-    .project-dialog-topbar {
-      max-width: 700px;
-      margin: 0 auto 14px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #f2f2f2;
-    }
-
-    .project-dialog-topbar span {
-      font-weight: bold;
-      letter-spacing: 0.03em;
-    }
-
-    .project-dialog-close {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .project-dialog-close:hover {
-      background: #001a59cc;
-      transform: rotate(90deg);
-    }
-
-    .project-page {
-      width: 700px;
-      max-width: 100%;
-      margin: 0 auto 30px auto;
-      background: #fff;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-      border-radius: 12px;
-      padding: 40px 44px;
-      animation: pageRise 0.35s ease;
-    }
-
-    .project-page h2 {
-      font-size: 1.5rem;
-      margin-bottom: 4px;
-    }
-
-    .project-page .pp-tech {
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      color: #001a59cc;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .project-page .pp-meta {
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      color: #888;
-      margin-bottom: 18px;
-    }
-
-    .project-page .pp-summary {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 18px;
-    }
-
-    .project-page h3 {
-      font-family: Arial, sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #001a59cc;
-      margin-bottom: 8px;
-      margin-top: 18px;
-    }
-
-    .project-page ul {
-      padding-left: 20px;
-      margin-bottom: 6px;
-    }
-
-    .project-page ul li {
-      list-style: disc;
-      border-bottom: none;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      padding: 3px 0;
-      color: #333;
-    }
-
-    /* Print: strip everything but the page itself, at true A4 size */
-    @media print {
-      body * { visibility: hidden; }
-      .resume-page, .resume-page * { visibility: visible; }
-      .resume-page {
-        position: absolute;
-        top: 0; left: 0;
-        box-shadow: none;
-        width: 210mm;
-        min-height: 297mm;
-        margin: 0;
-        padding: 18mm 16mm;
-      }
-      .resume-dialog-topbar, .resume-dialog-close { display: none; }
-      @page { size: A4; margin: 0; }
-    }
-
-    /* ========== Responsive ========== */
-    @media (max-width: 1024px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 0.8rem;
-        padding: 1rem 0 0.5rem 0;
-        background: #1c1c1c;
-        border-radius: 0 0 8px 8px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 8px 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #333;
-      }
-
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
-
-      .profile-img {
-        width: 130px;
-        height: 160px;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .profile-img {
-        width: 120px;
-        height: 150px;
-        margin: 20px auto;
-      }
-
-      section {
-        margin: 20px 15px;
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .contact-links a {
-        display: block;
-        margin: 10px 0;
-      }
-
-      .resume-page {
-        padding: 34px 24px;
-      }
-
-      .rp-header h1 {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .profile-img {
-        width: 100px;
-        height: 120px;
-      }
-
-      .hero h1 {
-        font-size: 1.6rem;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-    }
-
-    .nav-links.open {
-      display: flex;
-    }
-  </style>
-		</head>
-		<body>
-			<!-- ===== Navigation with Hamburger ===== -->
-			<nav>
-				<div class="hamburger" id="hamburgerIcon" aria-label="Toggle navigation">
-					<i class="fas fa-bars"></i>
-				</div>
-				<ul class="nav-links" id="navLinks">
-					<li>
-						<a href="#home">Home</a>
-					</li>
-					<li>
-						<a href="#about">About</a>
-					</li>
-					<li>
-						<a href="#projects">Projects</a>
-					</li>
-					<li>
-						<a href="#resume">Resume</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-			</nav>
-			<div class="profile-img"></div>
-			<section id="home" class="hero">
-				<h1>Hello, I'm Balaji Koushik S</h1>
-				<p>Full Stack Web Developer</p>
-				<p>+91 6361656372 | balajikoushik18@gmail.com</p>
-			</section>
-			<section id="about">
-				<h2>About Me</h2>
-				<p>I am a passionate web developer with hands-on experience in building dynamic web applications using modern frameworks and technologies.</p>
-				<h3>Education</h3>
-				<p>
-					<strong>Vemana Institute of Technology, Bengaluru</strong>
-					<br />Bachelor of Engineering (Dec. 2020 – May 2024)
-				</p>
-				<p>
-					<strong>Sahyadri PU College, Kolar</strong>
-					<br />Pre-University (May 2018 – July 2020)
-				</p>
-			</section>
-			<section id="projects">
-				<h2>Projects</h2>
-				<div class="project-item">
-					<div class="project-info">
-						<strong>AI-based Smart Hydroponics System</strong>
-						<span>ESP8266, Arduino, Python, KNN/ANN/Lasso Regression, IoT</span>
-					</div>
-					<button type="button" class="project-explore-btn" data-project="hydroponics">
-						<i class="fas fa-arrow-right"></i> Explore
-    
-					</button>
-				</div>
-				<div class="project-item">
-					<div class="project-info">
-						<strong>Waste Management System using IoT</strong>
-						<span>Raspberry Pi 3, Python, Sensor Fusion, IoT</span>
-					</div>
-					<button type="button" class="project-explore-btn" data-project="waste-management">
-						<i class="fas fa-arrow-right"></i> Explore
-    
-					</button>
-				</div>
-			</section>
-			<section id="resume">
-				<h2>Resume</h2>
-				<div class="resume-actions">
-					<button type="button" class="resume-btn view" id="viewResumeBtn">
-						<i class="fas fa-eye"></i> View Resume
-    
-					</button>
-					<a href="#" id="downloadResumeBtn" class="resume-btn download">
-      📄 Download Resume
-    </a>
-				</div>
-				<div class="resume-section">
-					<h3>Experience</h3>
-					<p>
-						<strong>Web Programmer</strong> — Quess Corp Ltd. (assigned to Resideo) (May 2025 – Present)
-					</p>
-					<p>
-						<strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb 2025)
-					</p>
-					<p>
-						<strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)
-					</p>
-					<h3>Achievements</h3>
-					<p>ICWITE 2021 conference presentation; IEEE ICITEICS 2024 paper accepted</p>
-					<h3>Certifications</h3>
-					<p>
-						<a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)
-						<br/>
-						<a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">Web Development Bootcamp</a> — Udemy (2022)
-						<br/>
-						<a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Course</a> — Quntnex (2024)
-						<br/>
-						<a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
-    
-					</p>
-					<h3>Skills</h3>
-					<p>Java, Python, C/C++, SQL, JavaScript, React, Django, Angular</p>
-				</div>
-			</section>
-			<section id="contact">
-				<h2>Contact Me</h2>
-				<p>Connect with me on:</p>
-				<div class="contact-links">
-					<a href="https://www.linkedin.com/in/balajikoushik2003/" target="_blank">💼 LinkedIn</a>
-					<a href="https://wa.me/916361656372" target="_blank">💬 WhatsApp</a>
-					<a href="https://github.com/balajikoushik2003" target="_blank">🐙 GitHub</a>
-					<a href="https://www.instagram.com/balajikoushiks/" target="_blank">📸 Instagram</a>
-					<a href="https://x.com/koushik_srinath" target="_blank">🐦 Twitter(X)</a>
-					<a href="https://www.facebook.com/share/1TvXVRYYy8/" target="_blank">📘 Facebook</a>
-				</div>
-			</section>
-			<footer>
-				<div class="footer-logo"></div>
-  Designed and Developed by Balaji Koushik S
-
-			</footer>
-			<!-- ===== Project Summary Dialogs ===== -->
-			<div class="project-dialog-overlay" id="projectDialog-hydroponics" role="dialog" aria-modal="true" aria-label="AI-based Smart Hydroponics System summary">
-				<div class="project-dialog-topbar">
-					<span>Project Summary</span>
-					<button type="button" class="project-dialog-close" aria-label="Close project summary">
-						<i class="fas fa-times"></i>
-					</button>
-				</div>
-				<div class="project-page">
-					<h2>AI-Based Smart Hydroponics System</h2>
-					<div class="pp-tech">ESP8266 &middot; Arduino &middot; Python &middot; KNN &middot; ANN &middot; Lasso Regression &middot; IoT</div>
-					<div class="pp-meta">Project Work Phase-2 (18ECP78) &middot; Vemana Institute of Technology &middot; 2023-24</div>
-					<p class="pp-summary">
-      A soil-less, self-controlled hydroponics system that uses an IoT sensor network (DHT11 temperature/humidity,
-      pH sensor, moisture sensor, and ultrasonic water-level sensor) feeding two ESP8266 modules — one for sensing,
-      one for actuation (relay, pump, horticulture LED). Sensor data is logged and classified with machine learning
-      (KNN, ANN, and Lasso regression) to keep nutrient levels, pH, and humidity in an optimal range, with an
-      added anti-bacterial setup to curb water-borne diseases common in hydroponic setups.
-    </p>
-					<h3>Key Results</h3>
-					<ul>
-						<li>Neural network classifier trained on sensor data (temperature, humidity, water level, pH) reached 99.98% test accuracy.</li>
-						<li>End-to-end pipeline: ESP8266 sensor readings → Java server (NetBeans) logging to CSV → ML model → mobile app status ("Normal"/"Abnormal").</li>
-						<li>Physical prototype built and tested with live plants, growing crops without soil using less water than traditional methods.</li>
-						<li>Work accepted and presented at the IEEE ICITEICS 2024 conference with positive reviewer feedback.</li>
-					</ul>
-				</div>
-			</div>
-			<div class="project-dialog-overlay" id="projectDialog-waste-management" role="dialog" aria-modal="true" aria-label="Waste Management System using IoT summary">
-				<div class="project-dialog-topbar">
-					<span>Project Summary</span>
-					<button type="button" class="project-dialog-close" aria-label="Close project summary">
-						<i class="fas fa-times"></i>
-					</button>
-				</div>
-				<div class="project-page">
-					<h2>Waste Management System using IoT</h2>
-					<div class="pp-tech">Raspberry Pi 3 &middot; Python &middot; IR/Proximity/Moisture/Gas/Ultrasonic Sensors &middot; IoT</div>
-					<div class="pp-meta">Mini-Project (18ECMP68) &middot; Vemana Institute of Technology &middot; 2022-23</div>
-					<p class="pp-summary">
-      A smart waste-segregation system built around a Raspberry Pi 3 that automatically classifies waste into
-      metal, dry, and wet streams at the point of disposal. An IR sensor detects when waste is placed, an
-      inductive proximity sensor checks for metal, a moisture sensor distinguishes wet from dry waste, and a
-      gas sensor flags harmful gases from wet waste — each step routed to the correct bin via a servo motor and
-      reported on an LCD display with buzzer alerts.
-    </p>
-					<h3>Key Results</h3>
-					<ul>
-						<li>Working Proteus simulation validated the full sensor-to-LCD-to-servo logic (Metal/Dry/Wet detection, harmful-gas alert).</li>
-						<li>An ultrasonic sensor tracks bin fill level, triggering a cloud upload and SMS alert to concerned authorities once full.</li>
-						<li>Reduces manual sorting and lowers ragpicker exposure to hazardous waste through automatic segregation.</li>
-					</ul>
-				</div>
-			</div>
-			<!-- ===== Resume Dialog (A4 presentation) ===== -->
-			<div class="resume-dialog-overlay" id="resumeDialogOverlay" role="dialog" aria-modal="true" aria-label="Resume preview">
-				<div class="resume-dialog-topbar">
-					<span>Resume Preview</span>
-					<button type="button" class="resume-dialog-close" id="resumeDialogClose" aria-label="Close resume preview">
-						<i class="fas fa-times"></i>
-					</button>
-				</div>
-				<div class="resume-page">
-					<div class="rp-header">
-						<h1>Balaji Koushik S</h1>
-						<div class="rp-role">Full Stack Developer | React.js | Next.js | Node.js | Angular</div>
-						<div class="rp-contact">
-        +91 6361656372 &nbsp;|&nbsp;
-        
-							<a href="mailto:balajikoushik18@gmail.com">balajikoushik18@gmail.com</a> &nbsp;|&nbsp;
-        
-							<a href="https://linkedin.com/in/balaji-koushik-7b0a52301" target="_blank">linkedin.com/in/balaji-koushik</a>
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Professional Summary</h2>
-						<p class="rp-summary">
-							<strong>Full Stack Developer</strong> with 2.5+ years of experience in designing and building scalable web applications using React.js, Next.js, Node.js, Angular, and Shopify. Specialized in
-        
-							<strong>e-commerce solutions</strong>,
-        
-							<strong>RESTful API development</strong>, and
-        
-							<strong>WCAG 2.1 AA accessibility</strong> compliance. Proven expertise in
-        
-							<strong>performance optimization</strong>, reducing page load times by 30% and improving backend response times by 25%. Strong foundation in
-        
-							<strong>Agile/Scrum methodology</strong>,
-        
-							<strong>cloud deployment</strong> (Azure), and
-        
-							<strong>CI/CD pipelines</strong>. Actively seeking
-        
-							<strong>Full Stack Developer</strong> roles in product-based companies with focus on modern JavaScript technologies.
-      
-						</p>
-					</div>
-					<div class="rp-section">
-						<h2>Core Competencies</h2>
-						<div class="rp-skills-grid">
-							<strong>Frontend:</strong> React.js, Next.js, Angular, Shopify Liquid, TypeScript, HTML5, CSS3, Responsive UI
-							<br/>
-							<strong>Backend:</strong> Node.js, Express.js, Java, Spring Boot, REST APIs, Microservices
-							<br/>
-							<strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Database Optimization, Query Tuning
-							<br/>
-							<strong>DevOps &amp; Cloud:</strong> Microsoft Azure, Docker, Jenkins, Git, GitHub, CI/CD Pipelines
-							<br/>
-							<strong>Accessibility:</strong> WCAG 2.1 AA, ARIA, Keyboard Navigation, NVDA, Screen Readers
-							<br/>
-							<strong>Methodologies:</strong> Agile/Scrum, Test-Driven Development, OOP, Design Patterns
-      
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Technical Skills</h2>
-						<div class="rp-skills-grid">
-							<strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, Java, SQL
-							<br/>
-							<strong>Frameworks &amp; Libraries:</strong> React.js, Next.js, Angular, Node.js, Express.js, Spring Boot, Django
-							<br/>
-							<strong>Database &amp; Tools:</strong> MySQL, PostgreSQL, MongoDB, Docker, Jenkins, Azure DevOps
-							<br/>
-							<strong>Version Control:</strong> Git, GitHub, Git Flow, CI/CD
-							<br/>
-							<strong>Testing &amp; Debugging:</strong> Postman, Jest, Mocha, Chrome DevTools
-							<br/>
-							<strong>Soft Skills:</strong> Cross-functional Collaboration, Agile/Scrum, Problem-Solving, Communication
-      
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Professional Experience</h2>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Web Programmer</span>
-								<span class="rp-date">May 2025 -- Jul 2026</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Quess Corp Limited (Resideo Smart Home Technologies)</span>
-								<span>Bengaluru, India</span>
-							</div>
-							<ul>
-								<li>Architected and deployed WCAG 2.1 AA-compliant UI components using React.js, Next.js, and Shopify Liquid for HoneywellHome and First Alert storefronts</li>
-								<li>Resolved 50+ accessibility issues including keyboard navigation, focus management, and ARIA implementation, improving user experience for customers with disabilities</li>
-								<li>Engineered frontend features using React.js and Next.js, implementing lazy loading and code splitting to achieve 30% faster page load times</li>
-								<li>Integrated Microsoft Azure AD B2C for authentication, Azure Storage, and established CI/CD pipelines reducing deployment time by 40%</li>
-								<li>Collaborated with UX designers and product managers in Agile sprints, delivering features ahead of schedule</li>
-								<li>Managed content delivery through Sitecore CMS, improving content accuracy by 25% through XML optimization</li>
-							</ul>
-						</div>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Full Stack Developer</span>
-								<span class="rp-date">Aug 2024 -- Feb 2025</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Futureol Infotech Pvt. Ltd.</span>
-								<span>Bengaluru, India</span>
-							</div>
-							<ul>
-								<li>Developed full-stack enterprise applications using Angular, Node.js, Express, MySQL, and PostgreSQL</li>
-								<li>Designed and implemented secure RESTful APIs with JWT and OAuth 2.0 authentication, handling 10K+ daily requests</li>
-								<li>Optimized database queries and backend logic, reducing average API response time from 400ms to 300ms (25% improvement)</li>
-								<li>Led code reviews and mentored 2 junior developers, maintaining code quality standards</li>
-								<li>Implemented unit and integration testing using Jest, achieving 85% test coverage</li>
-								<li>Participated in Agile ceremonies (daily standups, sprint planning, retrospectives) using JIRA</li>
-							</ul>
-						</div>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Full Stack Developer Intern</span>
-								<span class="rp-date">Aug 2023 -- Oct 2023</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Take It Smart Pvt. Ltd.</span>
-								<span>Bengaluru, India</span>
-							</div>
-							<ul>
-								<li>Built a full-stack e-commerce platform with user authentication, product catalog, and order management system</li>
-								<li>Integrated third-party payment gateway and REST APIs for seamless transaction processing</li>
-								<li>Reduced bugs by 40% through systematic debugging and comprehensive testing</li>
-								<li>Gained hands-on experience with Agile methodology and Git version control</li>
-							</ul>
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Projects</h2>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Ezy Office - Enterprise Management System</span>
-								<span class="rp-date">Sep 2024 -- Feb 2025</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Angular, Node.js, Express, MySQL</span>
-							</div>
-							<ul>
-								<li>Built a comprehensive office management platform with 6+ microservices handling employee, project, and inventory modules</li>
-								<li>Designed RESTful APIs with JWT authentication, serving 500+ daily active users</li>
-								<li>Implemented real-time notifications using WebSockets and optimized database with indexing</li>
-							</ul>
-						</div>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Balaji Grocery Shop - E-commerce Platform</span>
-								<span class="rp-date">Aug 2023 -- Oct 2023</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>React.js, Node.js, MongoDB</span>
-							</div>
-							<ul>
-								<li>Launched a full-featured online grocery platform with 200+ product catalog and real-time inventory</li>
-								<li>Implemented secure payment integration (Razorpay) and order tracking system</li>
-								<li>Achieved 95% Google Lighthouse score through responsive design and performance optimization</li>
-							</ul>
-						</div>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">AI-Based Smart Hydroponics System</span>
-								<span class="rp-date">2024</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Python, Machine Learning, IoT</span>
-							</div>
-							<ul>
-								<li>Developed ML models (KNN, ANN, Lasso) achieving 0.9 cm/day plant growth optimization</li>
-								<li>Published research at ICWITE conference demonstrating predictive crop management</li>
-								<li>Collaborated with IoT team to integrate sensor data for real-time monitoring</li>
-							</ul>
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Certifications</h2>
-						<div class="rp-cert-list">
-							<a href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view" target="_blank">Python Pro Bootcamp</a> — Udemy (2023)
-							<br/>
-							<a href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view" target="_blank">The Complete Web Development Bootcamp</a> — Udemy (2022)
-							<br/>
-							<a href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view" target="_blank">Java Full Stack Development</a> — Quntnex (2024)
-							<br/>
-							<a href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view" target="_blank">eSim Certification</a> — IIT Bombay
-      
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Education</h2>
-						<div class="rp-entry">
-							<div class="rp-entry-head">
-								<span class="rp-title">Vemana Institute of Technology</span>
-								<span class="rp-date">2020 -- 2024</span>
-							</div>
-							<div class="rp-entry-sub">
-								<span>Bachelor of Engineering</span>
-								<span>Bengaluru, India</span>
-							</div>
-							<div style="font-family: Arial, sans-serif; font-size: 0.82rem; color: #555; margin-top: 2px;">
-          Visveswaraiah Technological University (VTU)
-        </div>
-						</div>
-					</div>
-					<div class="rp-section">
-						<h2>Additional Information</h2>
-						<div class="rp-skills-grid">
-							<strong>Languages:</strong> English (Professional), Hindi, Kannada, Tamil
-							<br/>
-							<strong>Availability:</strong> Immediate Joining (15 Days or less)
-							<br/>
-							<strong>Location Preference:</strong> Bengaluru, India (Open to relocation)
-							<br/>
-							<strong>Interests:</strong> Open Source Contributions, Tech Blogging, AI/ML Research
-							<br/>
-							<strong>Portfolio:</strong>
-							<a href="https://balajikoushik2003.github.io/balajikoushikpro/" target="_blank" style="color: #007c87; text-decoration: none;">balajikoushik2003.github.io/balajikoushikpro/</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- ===== Hamburger toggle script ===== -->
-			<script>
-  (function() {
-    const hamburger = document.getElementById('hamburgerIcon');
-    const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navLinks.classList.toggle('open');
-      const icon = hamburger.querySelector('i');
-      if (navLinks.classList.contains('open')) {
-        icon.className = 'fas fa-times';
-      } else {
-        icon.className = 'fas fa-bars';
-      }
-    });
-
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', function() {
-        navLinks.classList.remove('open');
-        const icon = hamburger.querySelector('i');
-        icon.className = 'fas fa-bars';
-      });
-    });
-
-    document.addEventListener('click', function(event) {
-      const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
-      if (!isClickInside && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        const icon = hamburger.querySelector('i');
-        icon.className = 'fas fa-bars';
-      }
-    });
-  })();
-
-  // ===== Resume download (force download, avoid GitHub blob viewer) =====
-  (function() {
-    const downloadBtn = document.getElementById('downloadResumeBtn');
-       const rawUrl = 'https://raw.githubusercontent.com/balajikoushik2003/balajikoushikpro/main/assets/Balaji_Koushik_srinath_Web_developer.pdf';
-    const fileName = 'Balaji_Koushik_srinath_Web_developer.pdf';
-
-    downloadBtn.addEventListener('click', async function(e) {
-      e.preventDefault();
-      try {
-        const response = await fetch(rawUrl);
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        const tempLink = document.createElement('a');
-        tempLink.href = blobUrl;
-        tempLink.download = fileName;
-        document.body.appendChild(tempLink);
-        tempLink.click();
-        document.body.removeChild(tempLink);
-        URL.revokeObjectURL(blobUrl);
-      } catch (err) {
-        // Fallback: raw URL still displays inline but is at least the actual file, not the GitHub HTML page
-        window.open(rawUrl, '_blank');
-      }
-    });
-  })();
-
-  // ===== Resume dialog (A4 preview) toggle =====
-  (function() {
-    const viewBtn = document.getElementById('viewResumeBtn');
-    const overlay = document.getElementById('resumeDialogOverlay');
-    const closeBtn = document.getElementById('resumeDialogClose');
-
-    function openDialog() {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDialog() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    viewBtn.addEventListener('click', openDialog);
-    closeBtn.addEventListener('click', closeDialog);
-
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeDialog();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
-    });
-  })();
-
-  // ===== Project summary dialogs toggle =====
-  (function() {
-    const exploreButtons = document.querySelectorAll('.project-explore-btn');
-
-    exploreButtons.forEach(btn => {
-      const key = btn.getAttribute('data-project');
-      const overlay = document.getElementById('projectDialog-' + key);
-      if (!overlay) return;
-
-      const closeBtn = overlay.querySelector('.project-dialog-close');
-
-      btn.addEventListener('click', function() {
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-
-      function closeDialog() {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      closeBtn.addEventListener('click', closeDialog);
-
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeDialog();
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
-      });
-    });
-  })();
-</script>
-		</body>
-	</html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Balaji Koushik S · Full Stack Developer</title>
+      <!-- Font Awesome for hamburger icon -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
+      <style>
+         /* ========== Global Styles ========== */
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+
+         body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-image: url("images/bg.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            animation: fadeInBody 1.5s ease-in;
+         }
+
+         @keyframes fadeInBody {
+            from {
+               opacity: 0;
+            }
+            to {
+               opacity: 1;
+            }
+         }
+
+         /* ========== Navigation ========== */
+         nav {
+            background: linear-gradient(90deg, #000000 0%, #1c1c1c 100%);
+            color: white;
+            padding: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            animation: slideDown 1s ease-out;
+         }
+
+         @media (min-width: 1025px) {
+            nav .nav-links {
+               position: absolute;
+               left: 50%;
+               transform: translateX(-50%);
+            }
+         }
+
+         @keyframes slideDown {
+            from {
+               transform: translateY(-100%);
+               opacity: 0;
+            }
+            to {
+               transform: translateY(0);
+               opacity: 1;
+            }
+         }
+
+         .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+            transition: all 0.3s ease;
+         }
+
+         .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition:
+               color 0.3s ease,
+               transform 0.2s;
+         }
+
+         .nav-links a:hover {
+            color: #001a59cc;
+            transform: scale(1.05);
+         }
+
+         .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+         }
+
+         .hamburger:hover {
+            transform: scale(1.1);
+            color: #001a59cc;
+         }
+
+         /* ========== Profile Image ========== */
+         .profile-img {
+            display: block;
+            margin: 30px auto 20px auto;
+            width: 140px;
+            height: 170px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background-size: cover;
+            background-position: center;
+            background-image: url("images/profile.png");
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            animation: zoomIn 1.2s ease-out;
+            transition: transform 0.3s ease-in-out;
+         }
+
+         @keyframes zoomIn {
+            from {
+               transform: scale(0.5);
+               opacity: 0;
+            }
+            to {
+               transform: scale(1);
+               opacity: 1;
+            }
+         }
+
+         /* ========== Sections ========== */
+         section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+         }
+
+         @keyframes fadeInUp {
+            from {
+               opacity: 0;
+               transform: translateY(40px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+
+         .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #222;
+         }
+
+         .hero p {
+            font-size: 1.2rem;
+            color: #555;
+         }
+
+         h2 {
+            margin-bottom: 10px;
+            color: #001a59cc;
+         }
+
+         ul {
+            list-style: none;
+            padding: 0;
+         }
+
+         ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+         }
+
+         .resume-section h3 {
+            margin-top: 20px;
+            color: #222;
+         }
+
+         .resume-section a {
+            color: #001a59cc;
+            font-weight: bold;
+            text-decoration: none;
+         }
+
+         .resume-section a:hover {
+            text-decoration: underline;
+         }
+
+         .contact-links a {
+            display: inline-block;
+            margin-right: 20px;
+            color: #001a59cc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+         }
+
+         .contact-links a:hover {
+            color: #007c87;
+            transform: scale(1.1);
+         }
+
+         footer {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            animation: fadeInFooter 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+         }
+
+         .footer-logo {
+            background-image: url("images/bksicon.png");
+            background-size: cover;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+         }
+
+         @keyframes fadeInFooter {
+            from {
+               opacity: 0;
+               transform: translateY(40px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+
+         /* ========== Resume action buttons ========== */
+         .resume-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 6px;
+         }
+
+         .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 2px solid #001a59cc;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+         }
+
+         .resume-btn.view {
+            background: #001a59cc;
+            color: #fff;
+         }
+
+         .resume-btn.view:hover {
+            background: #007c87;
+            border-color: #007c87;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 173, 181, 0.35);
+         }
+
+         .resume-btn.download {
+            background: #fff;
+            color: #001a59cc;
+         }
+
+         .resume-btn.download:hover {
+            background: #001a59cc;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 173, 181, 0.25);
+         }
+
+         /* ========== Resume Dialog (A4 preview) ========== */
+         .resume-dialog-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 15, 0.72);
+            z-index: 1200;
+            padding: 30px 16px;
+            overflow-y: auto;
+            animation: overlayFade 0.25s ease;
+         }
+
+         .resume-dialog-overlay.open {
+            display: block;
+         }
+
+         @keyframes overlayFade {
+            from {
+               opacity: 0;
+            }
+            to {
+               opacity: 1;
+            }
+         }
+
+         .resume-dialog-topbar {
+            max-width: 794px;
+            margin: 0 auto 14px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #f2f2f2;
+         }
+
+         .resume-dialog-topbar span {
+            font-weight: bold;
+            letter-spacing: 0.03em;
+         }
+
+         .resume-dialog-close {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition:
+               background 0.2s,
+               transform 0.2s;
+         }
+
+         .resume-dialog-close:hover {
+            background: #001a59cc;
+            transform: rotate(90deg);
+         }
+
+         /* A4 page: 210mm x 297mm, scaled to px at 96dpi (~794 x 1123) */
+         .resume-page {
+            width: 794px;
+            max-width: 100%;
+            min-height: 1123px;
+            margin: 0 auto 30px auto;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            padding: 60px 64px;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: #222;
+            animation: pageRise 0.35s ease;
+         }
+
+         @keyframes pageRise {
+            from {
+               opacity: 0;
+               transform: translateY(24px) scale(0.98);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0) scale(1);
+            }
+         }
+
+         .rp-header {
+            text-align: center;
+            border-bottom: 2px solid #001a59cc;
+            padding-bottom: 16px;
+            margin-bottom: 22px;
+         }
+
+         .rp-header h1 {
+            font-size: 1.9rem;
+            letter-spacing: 0.04em;
+            color: #1a1a1a;
+            text-transform: uppercase;
+         }
+
+         .rp-header .rp-role {
+            font-family: Arial, sans-serif;
+            color: #001a59cc;
+            font-weight: bold;
+            margin-top: 4px;
+            font-size: 0.95rem;
+         }
+
+         .rp-header .rp-contact {
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            color: #555;
+            margin-top: 8px;
+         }
+
+         .rp-header .rp-contact a {
+            color: #007c87;
+            text-decoration: none;
+         }
+
+         .rp-section {
+            margin-bottom: 20px;
+         }
+
+         .rp-section h2 {
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #001a59cc;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+         }
+
+         .rp-summary {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #333;
+         }
+
+         .rp-entry {
+            margin-bottom: 12px;
+         }
+
+         .rp-entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: Arial, sans-serif;
+            flex-wrap: wrap;
+            gap: 4px;
+         }
+
+         .rp-entry-head .rp-title {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #1a1a1a;
+         }
+
+         .rp-entry-head .rp-date {
+            font-size: 0.8rem;
+            color: #666;
+         }
+
+         .rp-entry-sub {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            color: #555;
+            flex-wrap: wrap;
+            gap: 4px;
+         }
+
+         .rp-entry ul {
+            margin-top: 6px;
+            padding-left: 18px;
+         }
+
+         .rp-entry ul li {
+            list-style: disc;
+            border-bottom: none;
+            padding: 2px 0;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #333;
+         }
+
+         .rp-skills-grid {
+            font-family: Arial, sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.9;
+         }
+
+         .rp-skills-grid strong {
+            color: #1a1a1a;
+         }
+
+         .rp-cert-list {
+            font-family: Arial, sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.8;
+         }
+
+         .rp-cert-list a {
+            color: #007c87;
+            text-decoration: none;
+         }
+
+         .rp-cert-list a:hover {
+            text-decoration: underline;
+         }
+
+         /* ========== Project cards ========== */
+         .project-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+         }
+
+         .project-item:last-child {
+            border-bottom: none;
+         }
+
+         .project-info strong {
+            display: block;
+            color: #222;
+            font-size: 1rem;
+         }
+
+         .project-info span {
+            color: #666;
+            font-size: 0.88rem;
+         }
+
+         .project-explore-btn {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            border: 2px solid #001a59cc;
+            background: #fff;
+            color: #001a59cc;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+         }
+
+         .project-explore-btn:hover {
+            background: #001a59cc;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 173, 181, 0.3);
+         }
+
+         /* ========== Project summary dialog ========== */
+         .project-dialog-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 15, 0.72);
+            z-index: 1200;
+            padding: 30px 16px;
+            overflow-y: auto;
+            animation: overlayFade 0.25s ease;
+         }
+
+         .project-dialog-overlay.open {
+            display: block;
+         }
+
+         .project-dialog-topbar {
+            max-width: 700px;
+            margin: 0 auto 14px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #f2f2f2;
+         }
+
+         .project-dialog-topbar span {
+            font-weight: bold;
+            letter-spacing: 0.03em;
+         }
+
+         .project-dialog-close {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition:
+               background 0.2s,
+               transform 0.2s;
+         }
+
+         .project-dialog-close:hover {
+            background: #001a59cc;
+            transform: rotate(90deg);
+         }
+
+         .project-page {
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto 30px auto;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            border-radius: 12px;
+            padding: 40px 44px;
+            animation: pageRise 0.35s ease;
+         }
+
+         .project-page h2 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+         }
+
+         .project-page .pp-tech {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            color: #001a59cc;
+            font-weight: bold;
+            margin-bottom: 6px;
+         }
+
+         .project-page .pp-meta {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 18px;
+         }
+
+         .project-page .pp-summary {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 18px;
+         }
+
+         .project-page h3 {
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #001a59cc;
+            margin-bottom: 8px;
+            margin-top: 18px;
+         }
+
+         .project-page ul {
+            padding-left: 20px;
+            margin-bottom: 6px;
+         }
+
+         .project-page ul li {
+            list-style: disc;
+            border-bottom: none;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 3px 0;
+            color: #333;
+         }
+
+         /* Print: strip everything but the page itself, at true A4 size */
+         @media print {
+            body * {
+               visibility: hidden;
+            }
+            .resume-page,
+            .resume-page * {
+               visibility: visible;
+            }
+            .resume-page {
+               position: absolute;
+               top: 0;
+               left: 0;
+               box-shadow: none;
+               width: 210mm;
+               min-height: 297mm;
+               margin: 0;
+               padding: 18mm 16mm;
+            }
+            .resume-dialog-topbar,
+            .resume-dialog-close {
+               display: none;
+            }
+            @page {
+               size: A4;
+               margin: 0;
+            }
+         }
+
+         /* ========== Responsive ========== */
+         @media (max-width: 1024px) {
+            .hamburger {
+               display: block;
+            }
+
+            .nav-links {
+               display: none;
+               flex-direction: column;
+               width: 100%;
+               gap: 0.8rem;
+               padding: 1rem 0 0.5rem 0;
+               background: #1c1c1c;
+               border-radius: 0 0 8px 8px;
+            }
+
+            .nav-links.open {
+               display: flex;
+            }
+
+            .nav-links a {
+               padding: 8px 0;
+               width: 100%;
+               text-align: center;
+               border-bottom: 1px solid #333;
+            }
+
+            .nav-links a:last-child {
+               border-bottom: none;
+            }
+
+            .profile-img {
+               width: 130px;
+               height: 160px;
+            }
+
+            .hero h1 {
+               font-size: 2.2rem;
+            }
+         }
+
+         @media (max-width: 768px) {
+            .profile-img {
+               width: 120px;
+               height: 150px;
+               margin: 20px auto;
+            }
+
+            section {
+               margin: 20px 15px;
+               padding: 20px;
+            }
+
+            .hero h1 {
+               font-size: 2rem;
+            }
+
+            .hero p {
+               font-size: 1rem;
+            }
+
+            .contact-links a {
+               display: block;
+               margin: 10px 0;
+            }
+
+            .resume-page {
+               padding: 34px 24px;
+            }
+
+            .rp-header h1 {
+               font-size: 1.5rem;
+            }
+         }
+
+         @media (max-width: 480px) {
+            .profile-img {
+               width: 100px;
+               height: 120px;
+            }
+
+            .hero h1 {
+               font-size: 1.6rem;
+            }
+
+            .nav-links a {
+               font-size: 14px;
+            }
+         }
+
+         .nav-links.open {
+            display: flex;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- ===== Navigation with Hamburger ===== -->
+      <nav>
+         <div
+            class="hamburger"
+            id="hamburgerIcon"
+            aria-label="Toggle navigation"
+         >
+            <i class="fas fa-bars"></i>
+         </div>
+         <ul class="nav-links" id="navLinks">
+            <li>
+               <a href="#home">Home</a>
+            </li>
+            <li>
+               <a href="#about">About</a>
+            </li>
+            <li>
+               <a href="#projects">Projects</a>
+            </li>
+            <li>
+               <a href="#resume">Resume</a>
+            </li>
+            <li>
+               <a href="#contact">Contact</a>
+            </li>
+         </ul>
+      </nav>
+      <div class="profile-img"></div>
+      <section id="home" class="hero">
+         <h1>Hello, I'm Balaji Koushik S</h1>
+         <p>Full Stack Web Developer</p>
+         <p>+91 6361656372 | balajikoushik18@gmail.com</p>
+      </section>
+      <section id="about">
+         <h2>About Me</h2>
+         <p>
+            I am a passionate web developer with hands-on experience in building
+            dynamic web applications using modern frameworks and technologies.
+         </p>
+         <h3>Education</h3>
+         <p>
+            <strong>Vemana Institute of Technology, Bengaluru</strong>
+            <br />Bachelor of Engineering (Dec. 2020 – May 2024)
+         </p>
+         <p>
+            <strong>Sahyadri PU College, Kolar</strong>
+            <br />Pre-University (May 2018 – July 2020)
+         </p>
+      </section>
+      <section id="projects">
+         <h2>Projects</h2>
+         <div class="project-item">
+            <div class="project-info">
+               <strong>AI-based Smart Hydroponics System</strong>
+               <span
+                  >ESP8266, Arduino, Python, KNN/ANN/Lasso Regression, IoT</span
+               >
+            </div>
+            <button
+               type="button"
+               class="project-explore-btn"
+               data-project="hydroponics"
+            >
+               <i class="fas fa-arrow-right"></i> Explore
+            </button>
+         </div>
+         <div class="project-item">
+            <div class="project-info">
+               <strong>Waste Management System using IoT</strong>
+               <span>Raspberry Pi 3, Python, Sensor Fusion, IoT</span>
+            </div>
+            <button
+               type="button"
+               class="project-explore-btn"
+               data-project="waste-management"
+            >
+               <i class="fas fa-arrow-right"></i> Explore
+            </button>
+         </div>
+      </section>
+      <section id="resume">
+         <h2>Resume</h2>
+         <div class="resume-actions">
+            <button type="button" class="resume-btn view" id="viewResumeBtn">
+               <i class="fas fa-eye"></i> View Resume
+            </button>
+            <a href="#" id="downloadResumeBtn" class="resume-btn download">
+               📄 Download Resume
+            </a>
+         </div>
+         <div class="resume-section">
+            <h3>Experience</h3>
+            <p>
+               <strong>Web Programmer</strong> — Quess Corp Ltd. (assigned to
+               Resideo) (May 2025 – Present)
+            </p>
+            <p>
+               <strong>Futureol Infotech Pvt. Ltd.</strong> (Aug 2024 – Feb
+               2025)
+            </p>
+            <p>
+               <strong>Take It Smart Pvt. Ltd.</strong> (Aug 2023 – Oct 2023)
+            </p>
+            <h3>Achievements</h3>
+            <p>
+               ICWITE 2021 conference presentation; IEEE ICITEICS 2024 paper
+               accepted
+            </p>
+            <h3>Certifications</h3>
+            <p>
+               <a
+                  href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view"
+                  target="_blank"
+                  >Python Pro Bootcamp</a
+               >
+               — Udemy (2023)
+               <br />
+               <a
+                  href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view"
+                  target="_blank"
+                  >Web Development Bootcamp</a
+               >
+               — Udemy (2022)
+               <br />
+               <a
+                  href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view"
+                  target="_blank"
+                  >Java Full Stack Course</a
+               >
+               — Quntnex (2024)
+               <br />
+               <a
+                  href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view"
+                  target="_blank"
+                  >eSim Certification</a
+               >
+               — IIT Bombay
+            </p>
+            <h3>Skills</h3>
+            <p>Java, Python, C/C++, SQL, JavaScript, React, Django, Angular</p>
+         </div>
+      </section>
+      <section id="contact">
+         <h2>Contact Me</h2>
+         <p>Connect with me on:</p>
+         <div class="contact-links">
+            <a
+               href="https://www.linkedin.com/in/balajikoushik2003/"
+               target="_blank"
+               >💼 LinkedIn</a
+            >
+            <a href="https://wa.me/916361656372" target="_blank">💬 WhatsApp</a>
+            <a href="https://github.com/balajikoushik2003" target="_blank"
+               >🐙 GitHub</a
+            >
+            <a href="https://www.instagram.com/balajikoushiks/" target="_blank"
+               >📸 Instagram</a
+            >
+            <a href="https://x.com/koushik_srinath" target="_blank"
+               >🐦 Twitter(X)</a
+            >
+            <a href="https://www.facebook.com/share/1TvXVRYYy8/" target="_blank"
+               >📘 Facebook</a
+            >
+         </div>
+      </section>
+      <footer>
+         <div class="footer-logo"></div>
+         Designed and Developed by Balaji Koushik S
+      </footer>
+      <!-- ===== Project Summary Dialogs ===== -->
+      <div
+         class="project-dialog-overlay"
+         id="projectDialog-hydroponics"
+         role="dialog"
+         aria-modal="true"
+         aria-label="AI-based Smart Hydroponics System summary"
+      >
+         <div class="project-dialog-topbar">
+            <span>Project Summary</span>
+            <button
+               type="button"
+               class="project-dialog-close"
+               aria-label="Close project summary"
+            >
+               <i class="fas fa-times"></i>
+            </button>
+         </div>
+         <div class="project-page">
+            <h2>AI-Based Smart Hydroponics System</h2>
+            <div class="pp-tech">
+               ESP8266 &middot; Arduino &middot; Python &middot; KNN &middot;
+               ANN &middot; Lasso Regression &middot; IoT
+            </div>
+            <div class="pp-meta">
+               Project Work Phase-2 (18ECP78) &middot; Vemana Institute of
+               Technology &middot; 2023-24
+            </div>
+            <p class="pp-summary">
+               A soil-less, self-controlled hydroponics system that uses an IoT
+               sensor network (DHT11 temperature/humidity, pH sensor, moisture
+               sensor, and ultrasonic water-level sensor) feeding two ESP8266
+               modules — one for sensing, one for actuation (relay, pump,
+               horticulture LED). Sensor data is logged and classified with
+               machine learning (KNN, ANN, and Lasso regression) to keep
+               nutrient levels, pH, and humidity in an optimal range, with an
+               added anti-bacterial setup to curb water-borne diseases common in
+               hydroponic setups.
+            </p>
+            <h3>Key Results</h3>
+            <ul>
+               <li>
+                  Neural network classifier trained on sensor data (temperature,
+                  humidity, water level, pH) reached 99.98% test accuracy.
+               </li>
+               <li>
+                  End-to-end pipeline: ESP8266 sensor readings → Java server
+                  (NetBeans) logging to CSV → ML model → mobile app status
+                  ("Normal"/"Abnormal").
+               </li>
+               <li>
+                  Physical prototype built and tested with live plants, growing
+                  crops without soil using less water than traditional methods.
+               </li>
+               <li>
+                  Work accepted and presented at the IEEE ICITEICS 2024
+                  conference with positive reviewer feedback.
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div
+         class="project-dialog-overlay"
+         id="projectDialog-waste-management"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Waste Management System using IoT summary"
+      >
+         <div class="project-dialog-topbar">
+            <span>Project Summary</span>
+            <button
+               type="button"
+               class="project-dialog-close"
+               aria-label="Close project summary"
+            >
+               <i class="fas fa-times"></i>
+            </button>
+         </div>
+         <div class="project-page">
+            <h2>Waste Management System using IoT</h2>
+            <div class="pp-tech">
+               Raspberry Pi 3 &middot; Python &middot;
+               IR/Proximity/Moisture/Gas/Ultrasonic Sensors &middot; IoT
+            </div>
+            <div class="pp-meta">
+               Mini-Project (18ECMP68) &middot; Vemana Institute of Technology
+               &middot; 2022-23
+            </div>
+            <p class="pp-summary">
+               A smart waste-segregation system built around a Raspberry Pi 3
+               that automatically classifies waste into metal, dry, and wet
+               streams at the point of disposal. An IR sensor detects when waste
+               is placed, an inductive proximity sensor checks for metal, a
+               moisture sensor distinguishes wet from dry waste, and a gas
+               sensor flags harmful gases from wet waste — each step routed to
+               the correct bin via a servo motor and reported on an LCD display
+               with buzzer alerts.
+            </p>
+            <h3>Key Results</h3>
+            <ul>
+               <li>
+                  Working Proteus simulation validated the full
+                  sensor-to-LCD-to-servo logic (Metal/Dry/Wet detection,
+                  harmful-gas alert).
+               </li>
+               <li>
+                  An ultrasonic sensor tracks bin fill level, triggering a cloud
+                  upload and SMS alert to concerned authorities once full.
+               </li>
+               <li>
+                  Reduces manual sorting and lowers ragpicker exposure to
+                  hazardous waste through automatic segregation.
+               </li>
+            </ul>
+         </div>
+      </div>
+      <!-- ===== Resume Dialog (A4 presentation) ===== -->
+      <div
+         class="resume-dialog-overlay"
+         id="resumeDialogOverlay"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Resume preview"
+      >
+         <div class="resume-dialog-topbar">
+            <span>Resume Preview</span>
+            <button
+               type="button"
+               class="resume-dialog-close"
+               id="resumeDialogClose"
+               aria-label="Close resume preview"
+            >
+               <i class="fas fa-times"></i>
+            </button>
+         </div>
+         <div class="resume-page">
+            <div class="rp-header">
+               <h1>Balaji Koushik S</h1>
+               <div class="rp-role">
+                  Full Stack Developer | React.js | Next.js | Node.js | Angular
+               </div>
+               <div class="rp-contact">
+                  +91 6361656372 &nbsp;|&nbsp;
+
+                  <a href="mailto:balajikoushik18@gmail.com"
+                     >balajikoushik18@gmail.com</a
+                  >
+                  &nbsp;|&nbsp;
+
+                  <a
+                     href="https://linkedin.com/in/balaji-koushik-7b0a52301"
+                     target="_blank"
+                     >linkedin.com/in/balaji-koushik</a
+                  >
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Professional Summary</h2>
+               <p class="rp-summary">
+                  <strong>Full Stack Developer</strong> with 2.5+ years of
+                  experience in designing and building scalable web applications
+                  using React.js, Next.js, Node.js, Angular, and Shopify.
+                  Specialized in
+
+                  <strong>e-commerce solutions</strong>,
+
+                  <strong>RESTful API development</strong>, and
+
+                  <strong>WCAG 2.1 AA accessibility</strong> compliance. Proven
+                  expertise in
+
+                  <strong>performance optimization</strong>, reducing page load
+                  times by 30% and improving backend response times by 25%.
+                  Strong foundation in
+
+                  <strong>Agile/Scrum methodology</strong>,
+
+                  <strong>cloud deployment</strong> (Azure), and
+
+                  <strong>CI/CD pipelines</strong>. Actively seeking
+
+                  <strong>Full Stack Developer</strong> roles in product-based
+                  companies with focus on modern JavaScript technologies.
+               </p>
+            </div>
+            <div class="rp-section">
+               <h2>Core Competencies</h2>
+               <div class="rp-skills-grid">
+                  <strong>Frontend:</strong> React.js, Next.js, Angular, Shopify
+                  Liquid, TypeScript, HTML5, CSS3, Responsive UI
+                  <br />
+                  <strong>Backend:</strong> Node.js, Express.js, Java, Spring
+                  Boot, REST APIs, Microservices
+                  <br />
+                  <strong>Databases:</strong> MySQL, PostgreSQL, MongoDB,
+                  Database Optimization, Query Tuning
+                  <br />
+                  <strong>DevOps &amp; Cloud:</strong> Microsoft Azure, Docker,
+                  Jenkins, Git, GitHub, CI/CD Pipelines
+                  <br />
+                  <strong>Accessibility:</strong> WCAG 2.1 AA, ARIA, Keyboard
+                  Navigation, NVDA, Screen Readers
+                  <br />
+                  <strong>Methodologies:</strong> Agile/Scrum, Test-Driven
+                  Development, OOP, Design Patterns
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Technical Skills</h2>
+               <div class="rp-skills-grid">
+                  <strong>Languages:</strong> JavaScript (ES6+), TypeScript,
+                  Python, Java, SQL
+                  <br />
+                  <strong>Frameworks &amp; Libraries:</strong> React.js,
+                  Next.js, Angular, Node.js, Express.js, Spring Boot, Django
+                  <br />
+                  <strong>Database &amp; Tools:</strong> MySQL, PostgreSQL,
+                  MongoDB, Docker, Jenkins, Azure DevOps
+                  <br />
+                  <strong>Version Control:</strong> Git, GitHub, Git Flow, CI/CD
+                  <br />
+                  <strong>Testing &amp; Debugging:</strong> Postman, Jest,
+                  Mocha, Chrome DevTools
+                  <br />
+                  <strong>Soft Skills:</strong> Cross-functional Collaboration,
+                  Agile/Scrum, Problem-Solving, Communication
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Professional Experience</h2>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title">Web Programmer</span>
+                     <span class="rp-date">May 2025 -- Jul 2026</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span
+                        >Quess Corp Limited (Resideo Smart Home
+                        Technologies)</span
+                     >
+                     <span>Bengaluru, India</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Architected and deployed WCAG 2.1 AA-compliant UI
+                        components using React.js, Next.js, and Shopify Liquid
+                        for HoneywellHome and First Alert storefronts
+                     </li>
+                     <li>
+                        Resolved 50+ accessibility issues including keyboard
+                        navigation, focus management, and ARIA implementation,
+                        improving user experience for customers with
+                        disabilities
+                     </li>
+                     <li>
+                        Engineered frontend features using React.js and Next.js,
+                        implementing lazy loading and code splitting to achieve
+                        30% faster page load times
+                     </li>
+                     <li>
+                        Integrated Microsoft Azure AD B2C for authentication,
+                        Azure Storage, and established CI/CD pipelines reducing
+                        deployment time by 40%
+                     </li>
+                     <li>
+                        Collaborated with UX designers and product managers in
+                        Agile sprints, delivering features ahead of schedule
+                     </li>
+                     <li>
+                        Managed content delivery through Sitecore CMS, improving
+                        content accuracy by 25% through XML optimization
+                     </li>
+                  </ul>
+               </div>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title">Full Stack Developer</span>
+                     <span class="rp-date">Aug 2024 -- Feb 2025</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>Futureol Infotech Pvt. Ltd.</span>
+                     <span>Bengaluru, India</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Developed full-stack enterprise applications using
+                        Angular, Node.js, Express, MySQL, and PostgreSQL
+                     </li>
+                     <li>
+                        Designed and implemented secure RESTful APIs with JWT
+                        and OAuth 2.0 authentication, handling 10K+ daily
+                        requests
+                     </li>
+                     <li>
+                        Optimized database queries and backend logic, reducing
+                        average API response time from 400ms to 300ms (25%
+                        improvement)
+                     </li>
+                     <li>
+                        Led code reviews and mentored 2 junior developers,
+                        maintaining code quality standards
+                     </li>
+                     <li>
+                        Implemented unit and integration testing using Jest,
+                        achieving 85% test coverage
+                     </li>
+                     <li>
+                        Participated in Agile ceremonies (daily standups, sprint
+                        planning, retrospectives) using JIRA
+                     </li>
+                  </ul>
+               </div>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title">Full Stack Developer Intern</span>
+                     <span class="rp-date">Aug 2023 -- Oct 2023</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>Take It Smart Pvt. Ltd.</span>
+                     <span>Bengaluru, India</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Built a full-stack e-commerce platform with user
+                        authentication, product catalog, and order management
+                        system
+                     </li>
+                     <li>
+                        Integrated third-party payment gateway and REST APIs for
+                        seamless transaction processing
+                     </li>
+                     <li>
+                        Reduced bugs by 40% through systematic debugging and
+                        comprehensive testing
+                     </li>
+                     <li>
+                        Gained hands-on experience with Agile methodology and
+                        Git version control
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Projects</h2>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title"
+                        >Ezy Office - Enterprise Management System</span
+                     >
+                     <span class="rp-date">Sep 2024 -- Feb 2025</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>Angular, Node.js, Express, MySQL</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Built a comprehensive office management platform with 6+
+                        microservices handling employee, project, and inventory
+                        modules
+                     </li>
+                     <li>
+                        Designed RESTful APIs with JWT authentication, serving
+                        500+ daily active users
+                     </li>
+                     <li>
+                        Implemented real-time notifications using WebSockets and
+                        optimized database with indexing
+                     </li>
+                  </ul>
+               </div>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title"
+                        >Balaji Grocery Shop - E-commerce Platform</span
+                     >
+                     <span class="rp-date">Aug 2023 -- Oct 2023</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>React.js, Node.js, MongoDB</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Launched a full-featured online grocery platform with
+                        200+ product catalog and real-time inventory
+                     </li>
+                     <li>
+                        Implemented secure payment integration (Razorpay) and
+                        order tracking system
+                     </li>
+                     <li>
+                        Achieved 95% Google Lighthouse score through responsive
+                        design and performance optimization
+                     </li>
+                  </ul>
+               </div>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title"
+                        >AI-Based Smart Hydroponics System</span
+                     >
+                     <span class="rp-date">2024</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>Python, Machine Learning, IoT</span>
+                  </div>
+                  <ul>
+                     <li>
+                        Developed ML models (KNN, ANN, Lasso) achieving 0.9
+                        cm/day plant growth optimization
+                     </li>
+                     <li>
+                        Published research at ICWITE conference demonstrating
+                        predictive crop management
+                     </li>
+                     <li>
+                        Collaborated with IoT team to integrate sensor data for
+                        real-time monitoring
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Certifications</h2>
+               <div class="rp-cert-list">
+                  <a
+                     href="https://drive.google.com/file/d/1F2UO40K-i3n7PnSMhNRLIDHNjmEhgr82/view"
+                     target="_blank"
+                     >Python Pro Bootcamp</a
+                  >
+                  — Udemy (2023)
+                  <br />
+                  <a
+                     href="https://drive.google.com/file/d/13E1vJ2sGhcQNyRTcc6fZDCANKhwjFvat/view"
+                     target="_blank"
+                     >The Complete Web Development Bootcamp</a
+                  >
+                  — Udemy (2022)
+                  <br />
+                  <a
+                     href="https://drive.google.com/file/d/10crR-zf6-0bxeES_OCdUPvi1-EIqb_9e/view"
+                     target="_blank"
+                     >Java Full Stack Development</a
+                  >
+                  — Quntnex (2024)
+                  <br />
+                  <a
+                     href="https://drive.google.com/file/d/1qz75GMs0sf5CpJYeXsaxyrY3oUklVteO/view"
+                     target="_blank"
+                     >eSim Certification</a
+                  >
+                  — IIT Bombay
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Education</h2>
+               <div class="rp-entry">
+                  <div class="rp-entry-head">
+                     <span class="rp-title"
+                        >Vemana Institute of Technology</span
+                     >
+                     <span class="rp-date">2020 -- 2024</span>
+                  </div>
+                  <div class="rp-entry-sub">
+                     <span>Bachelor of Engineering</span>
+                     <span>Bengaluru, India</span>
+                  </div>
+                  <div
+                     style="
+                        font-family: Arial, sans-serif;
+                        font-size: 0.82rem;
+                        color: #555;
+                        margin-top: 2px;
+                     "
+                  >
+                     Visveswaraiah Technological University (VTU)
+                  </div>
+               </div>
+            </div>
+            <div class="rp-section">
+               <h2>Additional Information</h2>
+               <div class="rp-skills-grid">
+                  <strong>Languages:</strong> English (Professional), Hindi,
+                  Kannada, Tamil
+                  <br />
+                  <strong>Availability:</strong> Immediate Joining (15 Days or
+                  less)
+                  <br />
+                  <strong>Location Preference:</strong> Bengaluru, India (Open
+                  to relocation)
+                  <br />
+                  <strong>Interests:</strong> Open Source Contributions, Tech
+                  Blogging, AI/ML Research
+                  <br />
+                  <strong>Portfolio:</strong>
+                  <a
+                     href="https://balajikoushik2003.github.io/balajikoushikpro/"
+                     target="_blank"
+                     style="color: #007c87; text-decoration: none"
+                     >balajikoushik2003.github.io/balajikoushikpro/</a
+                  >
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ===== Hamburger toggle script ===== -->
+      <script>
+         (function () {
+            const hamburger = document.getElementById("hamburgerIcon");
+            const navLinks = document.getElementById("navLinks");
+
+            hamburger.addEventListener("click", function (e) {
+               e.stopPropagation();
+               navLinks.classList.toggle("open");
+               const icon = hamburger.querySelector("i");
+               if (navLinks.classList.contains("open")) {
+                  icon.className = "fas fa-times";
+               } else {
+                  icon.className = "fas fa-bars";
+               }
+            });
+
+            const links = navLinks.querySelectorAll("a");
+            links.forEach((link) => {
+               link.addEventListener("click", function () {
+                  navLinks.classList.remove("open");
+                  const icon = hamburger.querySelector("i");
+                  icon.className = "fas fa-bars";
+               });
+            });
+
+            document.addEventListener("click", function (event) {
+               const isClickInside =
+                  navLinks.contains(event.target) ||
+                  hamburger.contains(event.target);
+               if (!isClickInside && navLinks.classList.contains("open")) {
+                  navLinks.classList.remove("open");
+                  const icon = hamburger.querySelector("i");
+                  icon.className = "fas fa-bars";
+               }
+            });
+         })();
+
+         // ===== Resume download (force download, avoid GitHub blob viewer) =====
+         (function () {
+            const downloadBtn = document.getElementById("downloadResumeBtn");
+            const rawUrl =
+               "https://raw.githubusercontent.com/balajikoushik2003/balajikoushikpro/main/assets/Balaji_Koushik_srinath_Web_developer.pdf";
+            const fileName = "Balaji_Koushik_srinath_Web_developer.pdf";
+
+            downloadBtn.addEventListener("click", async function (e) {
+               e.preventDefault();
+               try {
+                  const response = await fetch(rawUrl);
+                  const blob = await response.blob();
+                  const blobUrl = URL.createObjectURL(blob);
+                  const tempLink = document.createElement("a");
+                  tempLink.href = blobUrl;
+                  tempLink.download = fileName;
+                  document.body.appendChild(tempLink);
+                  tempLink.click();
+                  document.body.removeChild(tempLink);
+                  URL.revokeObjectURL(blobUrl);
+               } catch (err) {
+                  // Fallback: raw URL still displays inline but is at least the actual file, not the GitHub HTML page
+                  window.open(rawUrl, "_blank");
+               }
+            });
+         })();
+
+         // ===== Resume dialog (A4 preview) toggle =====
+         (function () {
+            const viewBtn = document.getElementById("viewResumeBtn");
+            const overlay = document.getElementById("resumeDialogOverlay");
+            const closeBtn = document.getElementById("resumeDialogClose");
+
+            function openDialog() {
+               overlay.classList.add("open");
+               document.body.style.overflow = "hidden";
+            }
+
+            function closeDialog() {
+               overlay.classList.remove("open");
+               document.body.style.overflow = "";
+            }
+
+            viewBtn.addEventListener("click", openDialog);
+            closeBtn.addEventListener("click", closeDialog);
+
+            overlay.addEventListener("click", function (e) {
+               if (e.target === overlay) closeDialog();
+            });
+
+            document.addEventListener("keydown", function (e) {
+               if (e.key === "Escape" && overlay.classList.contains("open"))
+                  closeDialog();
+            });
+         })();
+
+         // ===== Project summary dialogs toggle =====
+         (function () {
+            const exploreButtons = document.querySelectorAll(
+               ".project-explore-btn",
+            );
+
+            exploreButtons.forEach((btn) => {
+               const key = btn.getAttribute("data-project");
+               const overlay = document.getElementById("projectDialog-" + key);
+               if (!overlay) return;
+
+               const closeBtn = overlay.querySelector(".project-dialog-close");
+
+               btn.addEventListener("click", function () {
+                  overlay.classList.add("open");
+                  document.body.style.overflow = "hidden";
+               });
+
+               function closeDialog() {
+                  overlay.classList.remove("open");
+                  document.body.style.overflow = "";
+               }
+
+               closeBtn.addEventListener("click", closeDialog);
+
+               overlay.addEventListener("click", function (e) {
+                  if (e.target === overlay) closeDialog();
+               });
+
+               document.addEventListener("keydown", function (e) {
+                  if (e.key === "Escape" && overlay.classList.contains("open"))
+                     closeDialog();
+               });
+            });
+         })();
+      </script>
+   </body>
+</html>
